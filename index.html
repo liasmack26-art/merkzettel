@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Lias' Merkzettel</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap">
+<style>
+/* Layout: ein Heft-Register. Startseite = Fächer als Liste, Fachseite = Arbeiten mit ihren Merkzetteln. */
+:root{
+  --paper:#ffffff; --ink:#1b222c; --ink-2:#56616f; --rule:#d4dbe4; --wash:#f4f6f9;
+  --pen:#2147b9; --hl-y:#fff27a; --hl-g:#c6f0cb;
+  --font:"Lexend","Segoe UI",system-ui,-apple-system,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--paper:#14171b;--ink:#e4e8ed;--ink-2:#a1abb7;--rule:#323a44;--wash:#1a1f25;--pen:#8aacff;--hl-y:rgba(255,226,64,.30);--hl-g:rgba(80,200,120,.27);color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#14171b;--ink:#e4e8ed;--ink-2:#a1abb7;--rule:#323a44;--wash:#1a1f25;--pen:#8aacff;--hl-y:rgba(255,226,64,.30);--hl-g:rgba(80,200,120,.27);color-scheme:dark}
+body{background:var(--paper);color:var(--ink);font-family:var(--font);font-size:1rem;line-height:1.55}
+.wrap{max-width:44rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:1.75rem 3rem;display:grid;gap:1.5rem}
+a{color:var(--pen)}
+:focus-visible{outline:2px solid var(--pen);outline-offset:2px}
+h1,h2,h3,p{margin:0}
+h1{font-size:2rem;line-height:1.2;text-wrap:balance}
+h2{font-size:1.25rem}
+.kicker{font-size:.8125rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);font-weight:700}
+.sub{color:var(--ink-2)}
+.hy{background:var(--hl-y);padding:.04em .22em;border-radius:.18em .4em .22em .35em}
+.box{border:1.5px solid var(--ink);padding:1rem;position:relative;display:grid;gap:.4rem}
+.box>.lbl{position:absolute;top:-.75em;left:.75rem;background:var(--paper);padding:0 .4rem;font-weight:700;font-size:.8125rem;letter-spacing:.06em;text-transform:uppercase}
+.note{font-size:.8125rem;color:var(--ink-2)}
+.subjects{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.subjects li{border-bottom:1px solid var(--rule)}
+.subjects a{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.75rem .25rem;color:var(--ink);text-decoration:none;font-weight:600}
+.subjects a:hover{background:var(--wash)}
+.count{font-weight:400;font-size:.875rem;color:var(--ink-2);white-space:nowrap}
+.count.has{color:var(--ink);background:var(--hl-g);padding:0 .5rem;border-radius:3px}
+.back{font-weight:600;text-decoration:none}
+.exam{border-top:2px solid var(--ink);padding-top:1rem;display:grid;gap:.75rem}
+.exam h2 span{font-weight:400;color:var(--ink-2);font-size:1rem}
+.items{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+.item{display:grid;gap:.15rem;padding:.75rem .875rem;border:1px solid var(--rule);border-radius:4px}
+.item a{font-weight:600;text-decoration:none}
+.item a:hover{text-decoration:underline}
+.tag{display:inline-block;font-size:.75rem;border:1px solid var(--ink-2);border-radius:3px;padding:0 .375rem;margin-right:.375rem;color:var(--ink);font-weight:400}
+.empty{color:var(--ink-2);border:1px dashed var(--rule);padding:1rem;border-radius:4px}
+</style>
+
+<main class="wrap" id="app"></main>
+
+<script>
+(()=>{
+/* ===== DATEN: hier neue Merkzettel eintragen ===== */
+const FAECHER=[
+ {id:'mathe',name:'Mathe',arbeiten:[
+   {titel:'Klassenarbeit 1',datum:'16.11.2026',thema:'Funktionen und ihre Graphen, Änderungsraten',items:[
+     {art:'Lernseite',titel:'Alle Themen mit Aufgaben, Lösungen und Quiz',url:'mathe/ka1-lernseite.html'}]}]},
+ {id:'deutsch',name:'Deutsch',arbeiten:[]},
+ {id:'englisch',name:'Englisch',arbeiten:[]},
+ {id:'franzoesisch',name:'Französisch',arbeiten:[
+   {titel:'Klassenarbeit',datum:'11.11.2026',thema:'Unité 1: Conditionnel, Pays et prépositions, Verben',items:[
+     {art:'Merkzettel',titel:'Kompakter Merkzettel mit Mini-Tests',url:'franzoesisch/ka-2026-11-11-merkzettel.html'},
+     {art:'Spickzettel',titel:'Spickzettel auf einer Seite',url:'franzoesisch/ka-2026-11-11-spickzettel.html'}]}]},
+ {id:'physik',name:'Physik',arbeiten:[]},{id:'chemie',name:'Chemie',arbeiten:[]},{id:'bio',name:'Biologie',arbeiten:[]},
+ {id:'nwt',name:'NWT',arbeiten:[]},{id:'geo',name:'Geographie',arbeiten:[]},{id:'geschichte',name:'Geschichte',arbeiten:[]},
+ {id:'gk',name:'Gemeinschaftskunde',arbeiten:[]},{id:'wbs',name:'WBS',arbeiten:[]},{id:'religion',name:'Religion',arbeiten:[]},
+ {id:'bk',name:'Bildende Kunst',arbeiten:[]},{id:'sport',name:'Sport',arbeiten:[]}
+];
+const TERMINE=[{fach:'Mathe',datum:'Mo 16.11.2026',was:'Klassenarbeit 1'}];
+/* ===== Ende Daten ===== */
+
+const app=document.getElementById('app');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const n=f=>f.arbeiten.reduce((s,a)=>s+a.items.length,0);
+
+function start(){
+  document.title="Lias' Merkzettel";
+  app.innerHTML=`
+  <header style="display:grid;gap:.5rem">
+    <p class="kicker">Klasse 10 · Schuljahr 2026/27</p>
+    <h1>Lias' Merkzettel</h1>
+    <p class="sub">Alle Lernseiten und Merkzettel an einem Ort, sortiert nach Fach und Klassenarbeit. Einfach anklicken und lernen.</p>
+  </header>
+  <section class="box" aria-label="Nächste Arbeiten"><span class="lbl">Nächste Arbeiten</span>
+    ${TERMINE.map(t=>`<p><span class="hy">${esc(t.datum)}</span> ${esc(t.fach)}: ${esc(t.was)}</p>`).join('')}
+    <p class="note">Später kommen die Termine automatisch aus dem Schulmanager.</p>
+  </section>
+  <section style="display:grid;gap:.75rem" aria-labelledby="hf"><h2 id="hf">Fächer</h2>
+    <ul class="subjects">${FAECHER.map(f=>{const c=n(f);return `<li><a href="#${f.id}"><span>${esc(f.name)}</span><span class="count${c?' has':''}">${c?c+(c===1?' Merkzettel':' Merkzettel'):'noch leer'}</span></a></li>`}).join('')}</ul>
+  </section>`;
+}
+function fach(f){
+  document.title=f.name+" · Lias' Merkzettel";
+  const body=f.arbeiten.length?f.arbeiten.map(a=>`
+    <section class="exam"><h2>${esc(a.titel)} <span>· ${esc(a.datum)}</span></h2>
+      ${a.thema?`<p class="sub">${esc(a.thema)}</p>`:''}
+      <ul class="items">${a.items.map(i=>`<li class="item"><a href="${esc(i.url)}"><span class="tag">${esc(i.art)}</span>${esc(i.titel)}</a></li>`).join('')}</ul>
+    </section>`).join(''):`<p class="empty">Für ${esc(f.name)} gibt es noch keine Merkzettel.</p>`;
+  app.innerHTML=`<a class="back" href="#start">← Alle Fächer</a><h1>${esc(f.name)}</h1>${body}`;
+}
+function route(){const id=location.hash.slice(1);const f=FAECHER.find(x=>x.id===id);f?fach(f):start();window.scrollTo(0,0);}
+addEventListener('hashchange',route);route();
+})();
+</script>

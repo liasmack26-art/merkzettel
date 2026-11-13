@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Merkzettel Französisch Unité 1</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Patrick+Hand&display=swap">
+<style>
+/* Layout: Heftblatt wie im Lernpfad (gleiche Farben = gleiche Bedeutung). Oben feste Leiste mit Sprungmarken, Abdecken und Timer. Darunter 5 Themen als Karten, je mit Mini-Test. */
+:root{
+  --paper:#f3f6fb; --sheet:#ffffff; --ink:#18213a; --ink2:#59647c; --line:#d2dbee; --line2:#e8edf6; --margin:#d8463c;
+  --stamm:#1c58cf; --stamm-bg:#d9e5ff; --end:#bf5b00; --end-bg:#ffe3c4; --fut:#6a3cc2; --fut-bg:#e9deff; --imp:#11806e; --imp-bg:#cdeee6;
+  --bad:#c62f2e; --bad-bg:#fde4e3; --ok:#15824a; --ok-bg:#d9f2e3; --fem:#c2306b; --fem-bg:#fde0ec; --plu:#5b6478; --plu-bg:#e3e7ef;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+  --hand:"Patrick Hand","Comic Sans MS","Segoe Print",cursive;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#11151d; --sheet:#1a202b; --ink:#e7eaf1; --ink2:#a0a9bb; --line:#303b4f; --line2:#252e3d; --margin:#ff6f63;
+  --stamm:#86adff; --stamm-bg:#233660; --end:#ffad60; --end-bg:#4a3216; --fut:#c0a6ff; --fut-bg:#362a57; --imp:#5ad0bb; --imp-bg:#173f39;
+  --bad:#ff7d79; --bad-bg:#4a1f22; --ok:#62da99; --ok-bg:#173d2a; --fem:#ff8ab8; --fem-bg:#4a1f33; --plu:#b4bccb; --plu-bg:#323a4a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#11151d; --sheet:#1a202b; --ink:#e7eaf1; --ink2:#a0a9bb; --line:#303b4f; --line2:#252e3d; --margin:#ff6f63;
+  --stamm:#86adff; --stamm-bg:#233660; --end:#ffad60; --end-bg:#4a3216; --fut:#c0a6ff; --fut-bg:#362a57; --imp:#5ad0bb; --imp-bg:#173f39;
+  --bad:#ff7d79; --bad-bg:#4a1f22; --ok:#62da99; --ok-bg:#173d2a; --fem:#ff8ab8; --fem-bg:#4a1f33; --plu:#b4bccb; --plu-bg:#323a4a; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.5 var(--body)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--sheet)}
+.wrap{max-width:1060px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--stamm);outline-offset:2px}
+p{margin:0 0 6px}
+
+/* Kopf */
+.top{background-color:var(--sheet);background-image:repeating-linear-gradient(180deg,transparent 0 27px,var(--line2) 27px 28px);border-bottom:1.5px solid var(--line)}
+.top-in{border-left:2px solid var(--margin);padding:18px 0 14px 16px}
+.eyebrow{font:700 .76rem var(--body);text-transform:uppercase;letter-spacing:.08em;color:var(--ink2)}
+h1{font:800 clamp(1.9rem,5.5vw,2.6rem)/1.05 var(--display);margin:6px 0 6px;letter-spacing:-.01em;text-wrap:balance}
+.sub{margin:0;color:var(--ink2);max-width:62ch}
+
+/* Leiste */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--sheet);border-bottom:1.5px solid var(--line)}
+.bar-in{display:flex;gap:6px;align-items:center;padding-block:8px;flex-wrap:wrap}
+.jump{display:flex;gap:6px;flex-wrap:wrap;min-width:0}
+.jump a{font:700 .84rem var(--body);color:var(--ink);text-decoration:none;padding:5px 10px;border-radius:99px;border:1.5px solid var(--line);background:var(--paper);white-space:nowrap}
+.jump a:hover{border-color:var(--k,var(--stamm))}
+.jump a b{color:var(--k,var(--ink2))}
+.tools{margin-left:auto;display:flex;gap:6px;align-items:center}
+.b{font:700 .88rem var(--body);padding:6px 12px;border-radius:8px;border:1.5px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.b:hover{border-color:var(--stamm)}
+.b.pri{background:var(--stamm);border-color:var(--stamm);color:var(--sheet)}
+.b[aria-pressed="true"]{background:var(--ink);color:var(--sheet);border-color:var(--ink)}
+.tm{font:700 .9rem var(--body);font-variant-numeric:tabular-nums;padding:5px 10px;border-radius:8px;background:var(--fut-bg);color:var(--fut)}
+.tm.over{background:var(--bad-bg);color:var(--bad)}
+
+/* Abschnitte */
+.sec{scroll-margin-top:70px;padding-block:24px 4px}
+.sh{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.sn{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font:800 1.15rem var(--display);color:var(--sheet);background:var(--k)}
+h2{font:800 1.55rem/1.1 var(--display);margin:0;text-wrap:balance}
+.sh small{display:block;color:var(--ink2);font-size:.86rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.card{background:var(--sheet);border:1.5px solid var(--line);border-radius:10px;padding:14px 16px;min-width:0}
+.card.wide{grid-column:1/-1}
+.card h3{font:700 1.04rem/1.2 var(--display);margin:0 0 8px;text-wrap:balance}
+.card h3 small{font:400 .82rem var(--body);color:var(--ink2)}
+.card.warn{border-color:var(--bad)}
+.card.warn h3{color:var(--bad)}
+.hand{font-family:var(--hand);font-size:1.12rem;color:var(--ink2);line-height:1.3}
+.de{color:var(--ink2);font-size:.9rem}
+.small{font-size:.88rem;color:var(--ink2)}
+ul.l{margin:0;padding-left:18px} ul.l li{margin:2px 0}
+ul.pl{list-style:none;margin:0;padding:0} ul.pl li{display:flex;justify-content:space-between;gap:10px;padding:3px 0;border-bottom:1px dashed var(--line2)} ul.pl li:last-child{border-bottom:0}
+ul.pl .de{text-align:right}
+.key{margin-top:10px;padding:8px 12px;border-radius:8px;background:var(--paper);border:1.5px dashed var(--line);font-size:.95rem}
+
+/* Markierungen (wie im Lernpfad) */
+.st,.en,.fe,.im,.mk{font-weight:700;border-radius:2px}
+.st{color:var(--stamm);background:linear-gradient(transparent 60%,var(--stamm-bg) 60%)}
+.en{color:var(--end);background:linear-gradient(transparent 60%,var(--end-bg) 60%)}
+.fe{color:var(--fut);background:linear-gradient(transparent 60%,var(--fut-bg) 60%)}
+.im{color:var(--imp);background:linear-gradient(transparent 60%,var(--imp-bg) 60%)}
+.mk{color:var(--k);background:linear-gradient(transparent 60%,var(--kb) 60%)}
+.reb{color:var(--fut);font-weight:700;text-decoration:underline 2px;text-underline-offset:3px}
+.s1{--k:var(--stamm);--kb:var(--stamm-bg)} .s2{--k:var(--fut);--kb:var(--fut-bg)} .s3{--k:var(--fem);--kb:var(--fem-bg)} .s4{--k:var(--end);--kb:var(--end-bg)} .s5{--k:var(--imp);--kb:var(--imp-bg)} .s6{--k:var(--bad);--kb:var(--bad-bg)}
+.k0{--k:var(--fut);--kb:var(--fut-bg)} .k1{--k:var(--stamm);--kb:var(--stamm-bg)} .k2{--k:var(--end);--kb:var(--end-bg)} .k3{--k:var(--imp);--kb:var(--imp-bg)}
+.gf{--k:var(--fem);--kb:var(--fem-bg)} .gm{--k:var(--stamm);--kb:var(--stamm-bg)} .gp{--k:var(--plu);--kb:var(--plu-bg)} .gc{--k:var(--imp);--kb:var(--imp-bg)}
+.kt{color:var(--k)}
+.ast{border-color:var(--k)} .ast h3{color:var(--k)}
+
+/* Plan */
+.plan{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+@media (max-width:700px){.plan{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.pb{display:flex;flex-direction:column;gap:2px;text-align:left;font:inherit;color:inherit;background:var(--sheet);border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;min-width:0}
+.pb:hover{border-color:var(--k,var(--stamm))}
+.pb .t{font:700 .78rem var(--body);color:var(--ink2);font-variant-numeric:tabular-nums}
+.pb b{font:700 1rem var(--display);color:var(--k,var(--ink))}
+.pb span.w{font-size:.86rem;color:var(--ink2)}
+.pb.on{border-color:var(--k,var(--stamm));box-shadow:0 0 0 2px var(--k,var(--stamm)) inset}
+.pb.done{opacity:.55}
+
+/* Formel */
+.formula{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:1.12rem;margin-bottom:10px}
+.fb{padding:6px 12px;border-radius:8px;border:2px solid var(--k);background:var(--kb);font-weight:700;color:var(--k)}
+.op{font:800 1.3rem var(--display);color:var(--ink2)}
+
+/* Konjugation */
+.conjs{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.vc{background:var(--sheet);border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;min-width:0}
+.vc h4{margin:0 0 6px;font:700 1.05rem var(--display);display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.vc h4 small{font:400 .82rem var(--body);color:var(--ink2)}
+.conj{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,auto);grid-auto-flow:column;gap:3px 6px}
+.cf{display:flex;gap:5px;align-items:baseline;padding:3px 6px;border-radius:6px;min-width:0;font-size:1rem}
+.cf .pn{color:var(--ink2);font-size:.84rem;white-space:nowrap}
+.boot{background:var(--imp-bg)}
+.vc .nt{margin:6px 0 0;font-size:.84rem;color:var(--ink2)}
+.fams{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.fam{border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--paper);min-width:0}
+.fam h4{margin:0;font:700 .98rem var(--display)}
+.fam .hand{font-size:1.02rem;margin-bottom:4px}
+.fam ul{list-style:none;margin:0;padding:0}
+.fam li{display:flex;justify-content:space-between;gap:8px;padding:2px 0;font-size:.95rem}
+.fam li .inf{color:var(--ink2);font-size:.85rem}
+.star{color:var(--end);font-weight:700}
+
+/* Tabellen */
+.tw{overflow-x:auto;margin-bottom:8px}
+table.pt{border-collapse:collapse;width:100%;min-width:520px}
+.pt th,.pt td{padding:7px 9px;border:1.5px solid var(--line);text-align:left;vertical-align:top}
+.pt th{background:var(--paper);font-weight:700}
+.pt th small{display:block;font-weight:400;color:var(--ink2);font-size:.76rem}
+.pt td{font-size:1.08rem}
+.pt th.kt{color:var(--k)}
+.cols3{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.cl{border:1.5px solid var(--k);border-radius:10px;padding:8px 12px;background:var(--sheet);min-width:0}
+.cl h4{margin:0 0 4px;font:700 .95rem var(--display);color:var(--k)}
+.cl ul{list-style:none;margin:0;padding:0;font-size:.95rem}
+.cl li{padding:1px 0}
+
+/* Text */
+.txt p{margin:0 0 8px;line-height:1.65}
+.txt .cd{color:var(--end);font-weight:700}
+.txt .cn{color:var(--stamm);font-weight:700}
+.txt .pp{color:var(--imp);font-weight:700}
+.tde p{margin:0 0 6px;color:var(--ink2);font-size:.92rem}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.84rem;color:var(--ink2);margin-bottom:8px}
+
+/* Mini-Test */
+.mt{margin-top:12px}
+.mt h3{font:700 1rem var(--display);margin:0 0 6px}
+.qs{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:6px}
+details.q{background:var(--sheet);border:1.5px solid var(--line);border-radius:8px;padding:7px 10px;min-width:0}
+details.q summary{cursor:pointer;list-style:none;font-size:.95rem}
+details.q summary::-webkit-details-marker{display:none}
+details.q summary::before{content:"?";display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--paper);border:1.5px solid var(--line);font:700 .75rem var(--body);margin-right:8px;color:var(--ink2)}
+details.q[open]{border-color:var(--ok)}
+details.q[open] summary::before{content:"✓";background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+details.q p{margin:6px 0 0;font-weight:700;color:var(--ok)}
+
+/* Checkliste */
+.chk{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.chk label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.chk input{width:18px;height:18px;margin-top:3px;accent-color:var(--ok);flex:none}
+.chk input:checked+span{color:var(--ink2);text-decoration:line-through}
+
+/* Abdecken */
+.c{border-radius:4px;transition:background .15s}
+body.cover .c:not(.shown){color:transparent!important;background:var(--line)!important;cursor:pointer;user-select:none}
+body.cover .c:not(.shown) *{color:transparent!important;background:none!important;text-decoration:none!important}
+body.cover .c:not(.shown):hover{background:var(--stamm-bg)!important}
+.foot{padding-block:24px 40px;color:var(--ink2);font-size:.86rem}
+
+@media (max-width:560px){
+  .tools{margin-left:0;width:100%}
+  .sec{scroll-margin-top:120px}
+  .conj{grid-template-columns:1fr 1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{.bar,.mt,body::before{display:none} .sec{break-inside:avoid-page} body{background:#fff}}
+html{scroll-behavior:smooth}
+</style>
+
+<header class="top"><div class="wrap top-in">
+  <div class="eyebrow">Klassenarbeit · Mi 11.11. · 5./6. Stunde · Unité 1</div>
+  <h1>Französisch auf einen Blick</h1>
+  <p class="sub">Alles, was drankommt, mit denselben Farben wie im Lernpfad. Drück <b>Abdecken</b>: Die Formen verschwinden, du sagst sie laut, ein Tipp deckt sie auf.</p>
+</div></header>
+
+<div class="bar"><div class="wrap bar-in">
+  <nav class="jump" aria-label="Themen">
+    <a href="#plan">Plan</a>
+    <a href="#cond" class="s1"><b>1</b> Conditionnel</a>
+    <a href="#inhalt" class="s2"><b>2</b> Inhalt</a>
+    <a href="#pays" class="s3"><b>3</b> Pays</a>
+    <a href="#verben" class="s4"><b>4</b> Verben</a>
+    <a href="#voc" class="s5"><b>5</b> Vokabeln</a>
+    <a href="#arbeit" class="s6"><b>!</b> In der Arbeit</a>
+  </nav>
+  <div class="tools">
+    <span class="tm" id="tm" hidden></span>
+    <button type="button" class="b" id="tmStop" hidden>Stopp</button>
+    <button type="button" class="b" id="cover" aria-pressed="false">Abdecken</button>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- PLAN -->
+<section class="sec" id="plan">
+  <div class="sh"><div><h2>Dein Plan für die Doppelstunde</h2><small>90 Minuten. Tipp auf einen Block, dann läuft oben der Timer.</small></div></div>
+  <div class="plan" id="planList">
+    <button type="button" class="pb" data-min="5" data-t="Überfliegen"><span class="t">0–5</span><b>Überfliegen</b><span class="w">Einmal alles runterscrollen</span></button>
+    <button type="button" class="pb s4" data-min="15" data-t="Verben"><span class="t">5–20</span><b>4 Verben</b><span class="w">Neu für dich. Abdecken, laut aufsagen</span></button>
+    <button type="button" class="pb s1" data-min="10" data-t="Conditionnel"><span class="t">20–30</span><b>1 Conditionnel</b><span class="w">Stämme abdecken + Mini-Test</span></button>
+    <button type="button" class="pb s3" data-min="10" data-t="Pays"><span class="t">30–40</span><b>3 Pays</b><span class="w">Tabelle abdecken + Mini-Test</span></button>
+    <button type="button" class="pb" data-min="5" data-t="Pause"><span class="t">40–45</span><b>Pause</b><span class="w">Aufstehen, Wasser trinken</span></button>
+    <button type="button" class="pb s2" data-min="15" data-t="Inhalt"><span class="t">45–60</span><b>2 Inhalt</b><span class="w">Mustertext 2× laut lesen</span></button>
+    <button type="button" class="pb s5" data-min="20" data-t="Vokabeln"><span class="t">60–80</span><b>5 Vokabeln</b><span class="w">S. 164–168, nur die schweren</span></button>
+    <button type="button" class="pb s6" data-min="10" data-t="Fallen"><span class="t">80–90</span><b>Fallen + Tests</b><span class="w">Rote Kästen, alle Mini-Tests</span></button>
+  </div>
+</section>
+
+<!-- 1 CONDITIONNEL -->
+<section class="sec s1" id="cond">
+  <div class="sh"><div class="sn">1</div><div><h2>Conditionnel présent</h2><small>„ich würde …“ · Wunsch, Bitte, Rat, Traum</small></div></div>
+  <div class="grid">
+    <div class="card">
+      <h3>Bauplan <small>gleich für alle Verben</small></h3>
+      <div class="formula"><span class="fb gm">Infinitiv</span><span class="op">+</span><span class="fb k2">-ais -ais -ait -ions -iez -aient</span></div>
+      <div class="conj">
+        <div class="cf"><span class="pn">j’</span><span class="c"><span class="st">aimer</span><span class="en">ais</span></span></div>
+        <div class="cf"><span class="pn">tu</span><span class="c"><span class="st">aimer</span><span class="en">ais</span></span></div>
+        <div class="cf"><span class="pn">il/elle</span><span class="c"><span class="st">aimer</span><span class="en">ait</span></span></div>
+        <div class="cf"><span class="pn">nous</span><span class="c"><span class="st">aimer</span><span class="en">ions</span></span></div>
+        <div class="cf"><span class="pn">vous</span><span class="c"><span class="st">aimer</span><span class="en">iez</span></span></div>
+        <div class="cf"><span class="pn">ils/elles</span><span class="c"><span class="st">aimer</span><span class="en">aient</span></span></div>
+      </div>
+      <div class="key"><b>-re:</b> das e fällt weg: prendre → je <span class="st">prendr</span><span class="en">ais</span>. <span class="hand">Immer ein r vor der Endung!</span></div>
+    </div>
+
+    <div class="card">
+      <h3>Wozu? <small>Ratte Bittet Wal um Vanilleeis</small></h3>
+      <ul class="pl">
+        <li><span><b>Rat</b></span><span>Tu <span class="st">devr</span><span class="en">ais</span> dormir plus. · À ta place, je …</span></li>
+        <li><span><b>Bitte</b></span><span><span class="st">Pourr</span><span class="en">ais</span>-tu m’aider ? · Je <span class="st">voudr</span><span class="en">ais</span> un café.</span></li>
+        <li><span><b>Wunsch</b></span><span>J’<span class="st">aimer</span><span class="en">ais</span> devenir pilote.</span></li>
+        <li><span><b>Vermutung</b></span><span>Selon le journal, il y <span class="st">aur</span><span class="en">ait</span> …</span></li>
+      </ul>
+      <div class="key"><b>Traum mit si:</b> Si <span class="im">j’avais</span> de l’argent, je <span class="st">voyager</span><span class="en">ais</span>.<br><span class="small">Nach <b>si</b> kommt <span class="im">j’avais / j’étais</span>, <b>nie</b> -rais.</span></div>
+    </div>
+
+    <div class="card wide">
+      <h3>Ausnahmen: 4 Familien <small>neuer Stamm, Endung bleibt gleich · <span class="star">★</span> = deine 7 Verben</small></h3>
+      <div class="fams">
+        <div class="fam"><h4>1 · Die Kurzen</h4><div class="hand">ganz neuer, kurzer Stamm</div><ul>
+          <li><span class="inf">être <span class="star">★</span></span><span>je <span class="c st">ser</span><span class="en">ais</span></span></li>
+          <li><span class="inf">avoir <span class="star">★</span></span><span>j’<span class="c st">aur</span><span class="en">ais</span></span></li>
+          <li><span class="inf">aller <span class="star">★</span></span><span>j’<span class="c st">ir</span><span class="en">ais</span></span></li>
+          <li><span class="inf">faire <span class="star">★</span></span><span>je <span class="c st">fer</span><span class="en">ais</span></span></li>
+          <li><span class="inf">savoir</span><span>je <span class="c st">saur</span><span class="en">ais</span></span></li></ul></div>
+        <div class="fam"><h4>2 · Die d-Einschieber</h4><div class="hand">ein d schiebt sich ein: vien-d-r</div><ul>
+          <li><span class="inf">venir <span class="star">★</span></span><span>je <span class="c st">viendr</span><span class="en">ais</span></span></li>
+          <li><span class="inf">vouloir <span class="star">★</span></span><span>je <span class="c st">voudr</span><span class="en">ais</span></span></li>
+          <li><span class="inf">tenir</span><span>je <span class="c st">tiendr</span><span class="en">ais</span></span></li>
+          <li><span class="inf">falloir</span><span>il <span class="c st">faudr</span><span class="en">ait</span></span></li></ul></div>
+        <div class="fam"><h4>3 · Die Doppel-R</h4><div class="hand">rr wie ein Motor: brrr</div><ul>
+          <li><span class="inf">pouvoir <span class="star">★</span></span><span>je <span class="c st">pourr</span><span class="en">ais</span></span></li>
+          <li><span class="inf">voir</span><span>je <span class="c st">verr</span><span class="en">ais</span></span></li>
+          <li><span class="inf">envoyer</span><span>j’<span class="c st">enverr</span><span class="en">ais</span></span></li>
+          <li><span class="inf">courir</span><span>je <span class="c st">courr</span><span class="en">ais</span></span></li></ul></div>
+        <div class="fam"><h4>4 · Die oi-Verlierer</h4><div class="hand">oi fliegt raus: dev(oi)r → devr</div><ul>
+          <li><span class="inf">devoir</span><span>je <span class="c st">devr</span><span class="en">ais</span></span></li>
+          <li><span class="inf">recevoir</span><span>je <span class="c st">recevr</span><span class="en">ais</span></span></li>
+          <li><span class="inf">décevoir</span><span>je <span class="c st">décevr</span><span class="en">ais</span></span></li>
+          <li><span class="inf">pleuvoir</span><span>il <span class="c st">pleuvr</span><span class="en">ait</span></span></li></ul></div>
+      </div>
+      <div class="key"><b>-er mit Extra:</b> j’ach<b>è</b>terais · je pa<b>i</b>erais · j’appe<b>ll</b>erais · je préf<b>é</b>rerais</div>
+    </div>
+
+    <div class="card">
+      <h3>Nicht verwechseln <small>das r und das s entscheiden</small></h3>
+      <ul class="pl">
+        <li><span>je parler<span class="fe">ai</span></span><span class="de">ich werde sprechen (Futur)</span></li>
+        <li><span>je <span class="st">parler</span><span class="en">ais</span></span><span class="de">ich würde sprechen</span></li>
+        <li><span>je <span class="im">parl</span><span class="en">ais</span></span><span class="de">ich sprach (kein r!)</span></li>
+      </ul>
+    </div>
+    <div class="card warn">
+      <h3>Fallen</h3>
+      <ul class="l">
+        <li>Nach <b>si</b> nie -rais: <i>si j’avais</i>, nicht „si j’aurais“</li>
+        <li>Beruf ohne Artikel: devenir <b>pilote</b></li>
+        <li>Akzente: je <b>serais</b>, préf<b>é</b>rerais</li>
+        <li>nous/vous: -<b>ions</b>, -<b>iez</b> (nous aimerions, vous pourriez)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="mt"><h3>Mini-Test <small class="small">erst sagen, dann tippen</small></h3><div class="qs">
+    <details class="q"><summary>ich würde gehen</summary><p>j’irais</p></details>
+    <details class="q"><summary>wir könnten</summary><p>nous pourrions</p></details>
+    <details class="q"><summary>sie (Pl.) möchten</summary><p>ils/elles voudraient</p></details>
+    <details class="q"><summary>Tu ___ (devoir) dormir plus.</summary><p>devrais</p></details>
+    <details class="q"><summary>Ce ___ (être) génial !</summary><p>serait</p></details>
+    <details class="q"><summary>Si j’avais le temps, je ___ (voyager).</summary><p>voyagerais</p></details>
+    <details class="q"><summary>ihr würdet machen</summary><p>vous feriez</p></details>
+    <details class="q"><summary>ich hätte</summary><p>j’aurais</p></details>
+  </div></div>
+</section>
+
+<!-- 2 INHALT -->
+<section class="sec s2" id="inhalt">
+  <div class="sh"><div class="sn">2</div><div><h2>Inhalt: Les jeunes</h2><small>4 Äste: Träume · Zukunft · Interessen · Engagement</small></div></div>
+  <div class="grid">
+    <div class="card ast k0"><h3>Rêves · Träume</h3><ul class="pl">
+      <li><span>le rêve · rêver de</span><span class="de">Traum · träumen von</span></li>
+      <li><span>réaliser son rêve</span><span class="de">Traum verwirklichen</span></li>
+      <li><span>faire le tour du monde</span><span class="de">Weltreise machen</span></li>
+      <li><span>partir à l’étranger</span><span class="de">ins Ausland gehen</span></li>
+      <li><span>être célèbre</span><span class="de">berühmt sein</span></li></ul>
+      <div class="key"><b>Mon rêve, c’est de</b> … · <b>J’aimerais</b> … · <b>Ce serait génial de</b> …</div></div>
+    <div class="card ast k1"><h3>Avenir · Zukunft</h3><ul class="pl">
+      <li><span>l’avenir · plus tard</span><span class="de">Zukunft · später</span></li>
+      <li><span>un métier</span><span class="de">ein Beruf</span></li>
+      <li><span>faire des études</span><span class="de">studieren</span></li>
+      <li><span>passer le bac</span><span class="de">Abitur machen</span></li>
+      <li><span>faire un stage</span><span class="de">Praktikum machen</span></li>
+      <li><span>gagner de l’argent</span><span class="de">Geld verdienen</span></li>
+      <li><span>fonder une famille</span><span class="de">Familie gründen</span></li></ul>
+      <div class="key"><b>Plus tard, je voudrais devenir</b> pilote. <span class="small">(ohne un!)</span></div></div>
+    <div class="card ast k2"><h3>Intérêts · Interessen</h3><ul class="pl">
+      <li><span>le temps libre</span><span class="de">die Freizeit</span></li>
+      <li><span>une passion</span><span class="de">eine Leidenschaft</span></li>
+      <li><span>s’intéresser à</span><span class="de">sich interessieren für</span></li>
+      <li><span>jouer <b>au</b> foot · jouer <b>de la</b> guitare</span><span class="de">Sport/Spiel · Instrument</span></li>
+      <li><span>faire <b>du</b> sport</span><span class="de">Sport machen</span></li>
+      <li><span>les réseaux sociaux</span><span class="de">soziale Netzwerke</span></li></ul>
+      <div class="key"><b>Je m’intéresse à</b> … · <b>Pendant mon temps libre, je</b> …</div></div>
+    <div class="card ast k3"><h3>Engagement · sich einsetzen</h3><ul class="pl">
+      <li><span>s’engager pour</span><span class="de">sich einsetzen für</span></li>
+      <li><span>une association</span><span class="de">ein Verein</span></li>
+      <li><span>faire du bénévolat</span><span class="de">ehrenamtlich arbeiten</span></li>
+      <li><span>aider les autres</span><span class="de">anderen helfen</span></li>
+      <li><span>protéger l’environnement</span><span class="de">Umwelt schützen</span></li>
+      <li><span>lutter contre</span><span class="de">kämpfen gegen</span></li>
+      <li><span>changer le monde</span><span class="de">die Welt verändern</span></li></ul>
+      <div class="key"><b>C’est important pour moi d’</b>aider les autres.</div></div>
+
+    <div class="card wide">
+      <h3>Dein Mustertext <small>aus deinem Baukasten, ca. 150 Wörter · 2× laut lesen, Lieblingssätze merken</small></h3>
+      <div class="legend"><span><b style="color:var(--end)">orange</b> = Conditionnel</span><span><b style="color:var(--stamm)">blau</b> = Verbindungswort</span><span><b style="color:var(--imp)">grün</b> = Land/Stadt</span></div>
+      <div class="txt">
+        <p>Salut ! Je m’appelle Lias et j’habite <span class="pp">à</span> Lörrach, près <span class="pp">de la</span> France et <span class="pp">de la</span> Suisse. Aujourd’hui, je vais parler de mes rêves et de mon avenir.</p>
+        <p>L’aviation, c’est ma passion. Pendant mon temps libre, je construis des fusées miniatures. Je m’intéresse <span class="cn">aussi</span> à l’informatique et à l’impression 3D.</p>
+        <p><span class="cn">D’abord</span>, je dois passer le bac. <span class="cn">Ensuite</span>, j’<span class="cd">aimerais</span> faire des études d’ingénieur. <span class="cn">Plus tard</span>, je <span class="cd">voudrais</span> devenir pilote <span class="cn">ou</span> ingénieur dans l’aérospatiale.</p>
+        <p>Mon rêve, ce <span class="cd">serait</span> de travailler pour une agence spatiale. <span class="cn">Si</span> j’avais assez d’argent, je <span class="cd">passerais</span> mon brevet de pilote. Ce <span class="cd">serait</span> génial de voler en parapente au-dessus des Alpes.</p>
+        <p>Je ne fais pas encore de bénévolat, <span class="cn">mais</span> j’<span class="cd">aimerais</span> aider les autres. <span class="cn">À mon avis</span>, il <span class="cd">faudrait</span> mieux protéger l’environnement. <span class="cn">Je pense que</span> les jeunes peuvent changer le monde.</p>
+        <p><span class="cn">Enfin</span>, je suis optimiste pour mon avenir. Voilà mes rêves ! Et toi, tu rêves de quoi ?</p>
+      </div>
+      <details class="q" style="margin-top:6px"><summary>Auf Deutsch anzeigen</summary><div class="tde" style="margin-top:6px">
+        <p>Hallo! Ich heiße Lias und wohne in Lörrach, nahe Frankreich und der Schweiz. Heute spreche ich über meine Träume und meine Zukunft.</p>
+        <p>Die Luftfahrt ist meine Leidenschaft. In meiner Freizeit baue ich Modellraketen. Ich interessiere mich auch für Informatik und 3D-Druck.</p>
+        <p>Zuerst muss ich das Abitur machen. Dann würde ich gern Ingenieurwesen studieren. Später möchte ich Pilot oder Ingenieur in der Raumfahrt werden.</p>
+        <p>Mein Traum wäre es, für eine Raumfahrtagentur zu arbeiten. Wenn ich genug Geld hätte, würde ich meinen Flugschein machen. Es wäre genial, mit dem Gleitschirm über die Alpen zu fliegen.</p>
+        <p>Ich arbeite noch nicht ehrenamtlich, aber ich würde gern anderen helfen. Meiner Meinung nach müsste man die Umwelt besser schützen. Ich denke, dass die Jugendlichen die Welt verändern können.</p>
+        <p>Zum Schluss: Ich bin optimistisch für meine Zukunft. Das sind meine Träume! Und du, wovon träumst du?</p>
+      </div></details>
+    </div>
+
+    <div class="card">
+      <h3>Text-Rezept <small>für jede Schreibaufgabe</small></h3>
+      <ul class="l">
+        <li>Einstieg → Interessen → Zukunft → <b>Traum mit Conditionnel</b> → Engagement → Schluss</li>
+        <li>Mindestens <b>3 Verbindungswörter</b> und <b>2 Conditionnel-Formen</b></li>
+      </ul>
+      <div class="key">d’abord · ensuite · puis · mais · parce que · donc · en plus · par contre · enfin<br>à mon avis · je pense que · je trouve que</div>
+    </div>
+    <div class="card">
+      <h3>Fragen zum Text</h3>
+      <ul class="pl">
+        <li><span>qui ? · que / quoi ?</span><span class="de">wer? · was?</span></li>
+        <li><span>où ? · quand ?</span><span class="de">wo? · wann?</span></li>
+        <li><span>pourquoi ? → parce que …</span><span class="de">warum? → weil …</span></li>
+        <li><span>comment ? · combien ?</span><span class="de">wie? · wie viel?</span></li>
+      </ul>
+      <div class="key">Über eine Person antworten: <b>je → il/elle</b>, <b>mon/ma/mes → son/sa/ses</b>. Wörter aus der Frage in die Antwort übernehmen.</div>
+    </div>
+    <div class="card warn">
+      <h3>Fallen</h3>
+      <ul class="l">
+        <li>s’intéresser <b>à</b> (au, aux): je m’intéresse <b>aux</b> sciences</li>
+        <li>rêver <b>de</b> · important <b>de</b> (d’ vor Vokal)</li>
+        <li>faire <b>du</b> sport, <b>du</b> bénévolat</li>
+        <li>devenir <b>pilote</b>, kein Artikel beim Beruf</li>
+      </ul>
+    </div>
+  </div>
+  <div class="mt"><h3>Mini-Test <small class="small">auf Französisch sagen</small></h3><div class="qs">
+    <details class="q"><summary>Ich interessiere mich für Musik.</summary><p>Je m’intéresse à la musique.</p></details>
+    <details class="q"><summary>Später möchte ich Pilot werden.</summary><p>Plus tard, je voudrais devenir pilote.</p></details>
+    <details class="q"><summary>Mein Traum ist es, eine Weltreise zu machen.</summary><p>Mon rêve, c’est de faire le tour du monde.</p></details>
+    <details class="q"><summary>Es ist mir wichtig, anderen zu helfen.</summary><p>C’est important pour moi d’aider les autres.</p></details>
+    <details class="q"><summary>Ich setze mich für die Umwelt ein.</summary><p>Je m’engage pour l’environnement.</p></details>
+    <details class="q"><summary>Meiner Meinung nach …</summary><p>À mon avis, …</p></details>
+  </div></div>
+</section>
+
+<!-- 3 PAYS -->
+<section class="sec s3" id="pays">
+  <div class="sh"><div class="sn">3</div><div><h2>Les pays et les prépositions</h2><small>Der Artikel des Landes sagt dir die Präposition</small></div></div>
+  <div class="grid">
+    <div class="card wide">
+      <h3>Die Tabelle <small>Farben wie in deinem Buch</small></h3>
+      <div class="tw"><table class="pt">
+        <tr><th></th><th class="kt gf">la France<small>weiblich</small></th><th class="kt gm">le Canada<small>männlich</small></th><th class="kt gp">les États-Unis<small>Mehrzahl</small></th><th class="kt gc">Paris<small>Stadt</small></th></tr>
+        <tr><th>wo? wohin?<small>in, nach</small></th><td><span class="c mk gf">en</span> France</td><td><span class="c mk gm">au</span> Canada</td><td><span class="c mk gp">aux</span> États-Unis</td><td><span class="c mk gc">à</span> Paris</td></tr>
+        <tr><th>woher?<small>aus</small></th><td><span class="c mk gf">de</span> France</td><td><span class="c mk gm">du</span> Canada</td><td><span class="c mk gp">des</span> États-Unis</td><td><span class="c mk gc">de</span> Paris</td></tr>
+      </table></div>
+      <div class="formula" style="font-size:1rem;margin:4px 0 0">
+        <span class="fb gm">à + le = au</span><span class="fb gm">de + le = du</span><span class="fb gp">à + les = aux</span><span class="fb gp">de + les = des</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3>2 Fragen, immer in dieser Reihenfolge</h3>
+      <ul class="pl">
+        <li><span><b>1.</b> Was will das Verb?</span><span class="de">wo/wohin oder woher</span></li>
+        <li><span><b>2.</b> Welcher Artikel?</span><span class="de">la · le · les · Stadt</span></li>
+      </ul>
+      <div class="key"><b>wo/wohin:</b> être, habiter, vivre, aller, partir, voyager, travailler<br><b>woher:</b> venir de, revenir de, rentrer de</div>
+    </div>
+    <div class="card">
+      <h3>Welcher Artikel? <small>schau aufs Ende</small></h3>
+      <p>Endet auf <b class="kt gf">-e</b> → <b class="kt gf">la</b> (weiblich). Sonst → <b class="kt gm">le</b>. Mehrzahl → <b class="kt gp">les</b>.</p>
+      <p class="hand">Ausnahme: le Mexique, le Cambodge (enden auf -e, sind aber männlich)</p>
+    </div>
+    <div class="card wide">
+      <div class="cols3">
+        <div class="cl gf"><h4>weiblich → en / de</h4><ul><li>la France</li><li>l’Allemagne → <b>d’</b>Allemagne</li><li>la Suisse · l’Autriche</li><li>la Belgique · l’Italie</li><li>l’Espagne → <b>d’</b>Espagne</li><li>l’Angleterre · la Grèce</li><li>la Chine · la Tunisie</li></ul></div>
+        <div class="cl gm"><h4>männlich → au / du</h4><ul><li>le Canada · le Québec</li><li>le Japon · le Portugal</li><li>le Maroc · le Sénégal</li><li>le Brésil · le Danemark</li><li>le Luxembourg</li><li>le Mexique <b class="kt gf">!</b> · le Cambodge <b class="kt gf">!</b></li></ul></div>
+        <div class="cl gp"><h4>Mehrzahl → aux / des</h4><ul><li>les États-Unis</li><li>les Pays-Bas</li><li>les Philippines</li></ul></div>
+        <div class="cl gc"><h4>Stadt → à / de</h4><ul><li>Paris · Berlin</li><li>Londres · Montréal</li><li>Bruxelles</li><li>vor Vokal: <b>d’</b>Amsterdam</li></ul></div>
+      </div>
+    </div>
+    <div class="card warn">
+      <h3>Fallen</h3>
+      <ul class="l">
+        <li>le Mexique: -e, aber männlich → <b>au</b> Mexique</li>
+        <li>Vor Vokal: <b>d’</b>Allemagne, <b>d’</b>Espagne</li>
+        <li>Weiblich ohne la: <b>en</b> France, nie „à la France“</li>
+        <li>Städte ohne Artikel: <b>à</b> Paris, <b>de</b> Paris</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Mit Thema 1 und 2 kombiniert</h3>
+      <p>J’aimerais vivre <span class="mk gm">au</span> Canada.</p>
+      <p>Mon rêve, c’est de voyager <span class="mk gp">aux</span> États-Unis.</p>
+      <p>Mon père vient <span class="mk gf">d’</span>Allemagne.</p>
+    </div>
+  </div>
+  <div class="mt"><h3>Mini-Test</h3><div class="qs">
+    <details class="q"><summary>Je vais ___ Japon.</summary><p>au Japon</p></details>
+    <details class="q"><summary>Il vient ___ Allemagne.</summary><p>d’Allemagne</p></details>
+    <details class="q"><summary>Elle habite ___ États-Unis.</summary><p>aux États-Unis</p></details>
+    <details class="q"><summary>Nous rentrons ___ Canada.</summary><p>du Canada</p></details>
+    <details class="q"><summary>J’aimerais vivre ___ Paris.</summary><p>à Paris</p></details>
+    <details class="q"><summary>Ils viennent ___ Mexique.</summary><p>du Mexique</p></details>
+    <details class="q"><summary>Tu voyages ___ Italie ?</summary><p>en Italie</p></details>
+    <details class="q"><summary>Elle revient ___ Pays-Bas.</summary><p>des Pays-Bas</p></details>
+  </div></div>
+</section>
+
+<!-- 4 VERBEN -->
+<section class="sec s4" id="verben">
+  <div class="sh"><div class="sn">4</div><div><h2>Verben im Präsens</h2><small><span class="st">Stamm</span> + <span class="en">Endung</span> · links Einzahl, rechts Mehrzahl</small></div></div>
+  <div class="card wide" style="margin-bottom:12px">
+    <h3>Regelmäßig: 3 Familien</h3>
+    <div class="conjs" id="regs"></div>
+    <div class="key"><b>Gesprochen</b> klingen je parle, tu parles, il parle, ils parlent gleich: -e, -es, -ent sind stumm. <b>Achtung:</b> partir, sortir, dormir haben kein -iss-: je pars, nous partons.</div>
+  </div>
+  <div class="card wide">
+    <h3>Deine 7 unregelmäßigen Verben <small>die musst du können</small></h3>
+    <div class="legend"><span><b style="color:var(--imp)">türkis hinterlegt</b> = Schuh-Form: je, tu, il, ils haben einen anderen Stamm als nous/vous</span><span><b class="reb">lila</b> = Rebellen-Endung</span></div>
+    <div class="conjs" id="irr"></div>
+    <div class="grid" style="margin-top:10px">
+      <div class="key" style="margin:0"><b>Nur 4 Verben enden auf -ont:</b> ils <span class="reb">sont</span>, ils <span class="reb">ont</span>, ils <span class="reb">vont</span>, ils <span class="reb">font</span>. Alle anderen: -ent.</div>
+      <div class="key" style="margin:0"><b>Nur 2 enden auf -tes:</b> vous <span class="reb">êtes</span>, vous <span class="reb">faites</span>. Alle anderen: -ez.</div>
+      <div class="key" style="margin:0"><b>x statt s:</b> je veu<b>x</b>, tu veu<b>x</b>, je peu<b>x</b>, tu peu<b>x</b>. <b>nn:</b> ils vie<b>nn</b>ent.</div>
+    </div>
+  </div>
+  <div class="grid" style="margin-top:12px">
+    <div class="card">
+      <h3>Verb + Infinitiv</h3>
+      <ul class="pl">
+        <li><span>Je <b>veux</b> partir.</span><span class="de">Ich will weggehen.</span></li>
+        <li><span>Tu <b>peux</b> venir ?</span><span class="de">Kannst du kommen?</span></li>
+        <li><span>Je <b>vais</b> travailler.</span><span class="de">Ich werde arbeiten.</span></li>
+      </ul>
+      <div class="key">aller + Infinitiv = nahe Zukunft. Super für die Zukunfts-Aufgabe!</div>
+    </div>
+    <div class="card">
+      <h3>-er mit kleinen Extras</h3>
+      <ul class="pl">
+        <li><span>nous mang<b>e</b>ons · nous commen<b>ç</b>ons</span><span class="de">damit es weich klingt</span></li>
+        <li><span>j’ach<b>è</b>te · je préf<b>è</b>re</span><span class="de">nicht bei nous/vous</span></li>
+        <li><span>j’appe<b>ll</b>e</span><span class="de">nous appelons</span></li>
+      </ul>
+    </div>
+    <div class="card warn">
+      <h3>Fallen</h3>
+      <ul class="l">
+        <li><b>ils</b> → -ent oder -ont, nie -ez</li>
+        <li><b>j’</b> vor Vokal: j’ai, j’aime, j’attends</li>
+        <li>venir de + Land = aus: je viens <b>de</b> France</li>
+        <li>il va (nicht „il vait“), il fait, il peut, il veut</li>
+      </ul>
+    </div>
+  </div>
+  <div class="mt"><h3>Mini-Test</h3><div class="qs">
+    <details class="q"><summary>ils ___ (faire)</summary><p>ils font</p></details>
+    <details class="q"><summary>vous ___ (être)</summary><p>vous êtes</p></details>
+    <details class="q"><summary>nous ___ (venir)</summary><p>nous venons</p></details>
+    <details class="q"><summary>elles ___ (vouloir)</summary><p>elles veulent</p></details>
+    <details class="q"><summary>tu ___ (pouvoir)</summary><p>tu peux</p></details>
+    <details class="q"><summary>ils ___ (aller)</summary><p>ils vont</p></details>
+    <details class="q"><summary>vous ___ (faire)</summary><p>vous faites</p></details>
+    <details class="q"><summary>nous ___ (finir)</summary><p>nous finissons</p></details>
+    <details class="q"><summary>il ___ (attendre)</summary><p>il attend</p></details>
+    <details class="q"><summary>ils ___ (venir)</summary><p>ils viennent</p></details>
+    <details class="q"><summary>j’___ (avoir)</summary><p>j’ai</p></details>
+    <details class="q"><summary>vous ___ (parler)</summary><p>vous parlez</p></details>
+  </div></div>
+</section>
+
+<!-- 5 VOKABELN -->
+<section class="sec s5" id="voc">
+  <div class="sh"><div class="sn">5</div><div><h2>Vokabeln</h2><small>S. 11 N°2 a) b) und S. 164–168 aus deinem Buch</small></div></div>
+  <div class="grid">
+    <div class="card">
+      <h3>20 Minuten, 3 Runden</h3>
+      <ul class="l">
+        <li><b>Runde 1:</b> Französisch abdecken, Deutsch lesen, laut sagen. Falsche mit Bleistift markieren.</li>
+        <li><b>Runde 2:</b> Nur die markierten, je 3× laut, dazu einen Mini-Satz.</li>
+        <li><b>Runde 3:</b> Nochmal alle markierten. Was jetzt sitzt: Strich weg.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Wenn dir in der Arbeit ein Wort fehlt</h3>
+      <ul class="l">
+        <li>Umschreiben: <i>c’est une personne qui …</i> / <i>c’est un endroit où …</i></li>
+        <li>Ein einfacheres Wort nehmen, das du sicher kannst.</li>
+        <li>Die Themen-Wörter von <a href="#inhalt">Thema 2</a> passen fast immer.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- IN DER ARBEIT -->
+<section class="sec s6" id="arbeit">
+  <div class="sh"><div class="sn">!</div><div><h2>In der Arbeit</h2><small>Deine Checkliste. Am Ende 5 Minuten zum Kontrollieren lassen.</small></div></div>
+  <div class="grid">
+    <div class="card">
+      <h3>Beim Schreiben</h3>
+      <ul class="chk">
+        <li><label><input type="checkbox" id="c1"><span>Erst alle Aufgaben überfliegen, mit der leichtesten anfangen.</span></label></li>
+        <li><label><input type="checkbox" id="c2"><span>Bei jedem Verb fragen: <b>Wer?</b> Dann die Endung.</span></label></li>
+        <li><label><input type="checkbox" id="c3"><span>„würde“ im Satz? → <b>r + ais</b>. Nach <b>si</b> kein -rais.</span></label></li>
+        <li><label><input type="checkbox" id="c4"><span>Land? → erst Verb (wohin/woher), dann Artikel.</span></label></li>
+        <li><label><input type="checkbox" id="c5"><span>Text: Rezept, 3 Verbindungswörter, 2 Conditionnel.</span></label></li>
+        <li><label><input type="checkbox" id="c6"><span>Lieber kurze richtige Sätze als lange falsche.</span></label></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Die letzten 5 Minuten</h3>
+      <ul class="chk">
+        <li><label><input type="checkbox" id="c7"><span><b>ils/elles:</b> -ent oder -ont?</span></label></li>
+        <li><label><input type="checkbox" id="c8"><span><b>vous:</b> -ez (außer êtes, faites)?</span></label></li>
+        <li><label><input type="checkbox" id="c9"><span>Apostroph: j’ai, d’Allemagne, c’est, l’avenir</span></label></li>
+        <li><label><input type="checkbox" id="c10"><span>Akzente: é, è, ê, à, ç</span></label></li>
+        <li><label><input type="checkbox" id="c11"><span>Keine Lücke leer lassen. Raten gibt manchmal Punkte.</span></label></li>
+      </ul>
+      <p class="hand" style="margin-top:10px">Hängst du fest: Lücke markieren, weiter, später zurück. Einmal tief atmen.</p>
+    </div>
+  </div>
+</section>
+
+<p class="foot">Mehr üben mit Erklärungen: dein Lernpfad mit Station 1 bis 3. Viel Erfolg, du schaffst das!</p>
+</main>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const PN=['je','tu','il/elle','nous','vous','ils/elles'];
+const vow=f=>/^[aeiouéèêh]/i.test(f);
+function cell(i,html,first,cls){const pn=i===0&&vow(first)?'j’':PN[i];return`<div class="cf${cls?' '+cls:''}"><span class="pn">${pn}</span><span class="c">${html}</span></div>`}
+/* Regelmäßig: [Infinitiv, Deutsch, Stamm, Endungen, Familie] */
+const REG=[['parler','sprechen','parl',['e','es','e','ons','ez','ent'],'-er'],['finir','beenden','fin',['is','is','it','issons','issez','issent'],'-ir'],['attendre','warten','attend',['s','s','','ons','ez','ent'],'-re']];
+$('#regs').innerHTML=REG.map(([inf,de,st,en,fam])=>`<div class="vc"><h4><span>${fam}: ${inf}</span><small>${de}</small></h4><div class="conj">${en.map((e,i)=>cell(i,`<span class="st">${st}</span><span class="en">${e||'–'}</span>`,st)).join('')}</div></div>`).join('');
+/* Unregelmäßig: Formen, boot = Schuh-Verb, reb = Index der Rebellen-Endungen */
+const IRR=[
+ ['être','sein',['suis','es','est','sommes','êtes','sont'],0,[4,5],'je suis = ich bin'],
+ ['avoir','haben',['ai','as','a','avons','avez','ont'],0,[5],'j’ai mit Apostroph'],
+ ['aller','gehen, fahren',['vais','vas','va','allons','allez','vont'],0,[5],'aller + Infinitiv = Zukunft'],
+ ['faire','machen',['fais','fais','fait','faisons','faites','font'],0,[4,5],'faire du sport'],
+ ['vouloir','wollen',['veux','veux','veut','voulons','voulez','veulent'],1,[],'Schuh: veu- / voul-'],
+ ['pouvoir','können',['peux','peux','peut','pouvons','pouvez','peuvent'],1,[],'Schuh: peu- / pouv-'],
+ ['venir','kommen',['viens','viens','vient','venons','venez','viennent'],1,[],'Schuh: vien- / ven-, ils vie<b>nn</b>ent']
+];
+$('#irr').innerHTML=IRR.map(([inf,de,f,boot,reb,nt])=>`<div class="vc"><h4><span>${inf}</span><small>${de}</small></h4><div class="conj">${f.map((x,i)=>cell(i,reb.includes(i)?`<span class="reb">${x}</span>`:x,f[0],boot&&[0,1,2,5].includes(i)?'boot':'')).join('')}</div><p class="nt">${nt}</p></div>`).join('');
+
+/* Abdecken */
+const cov=$('#cover');
+cov.addEventListener('click',()=>{const on=document.body.classList.toggle('cover');cov.setAttribute('aria-pressed',on);cov.textContent=on?'Aufdecken':'Abdecken';$$('.c.shown').forEach(e=>e.classList.remove('shown'))});
+document.addEventListener('click',e=>{const c=e.target.closest('.c');if(c&&document.body.classList.contains('cover'))c.classList.toggle('shown')});
+
+/* Timer */
+let tEnd=0,tName='',tInt=null;const tm=$('#tm'),ts=$('#tmStop');
+function tick(){const left=Math.round((tEnd-Date.now())/1000),a=Math.abs(left),m=Math.floor(a/60),s=String(a%60).padStart(2,'0');
+  tm.textContent=left>=0?`${tName} · ${m}:${s}`:`${tName}: Zeit um! Weiter zum nächsten Block`;tm.classList.toggle('over',left<0)}
+function stopT(){clearInterval(tInt);tInt=null;tm.hidden=true;ts.hidden=true;$$('.pb.on').forEach(b=>b.classList.remove('on'))}
+$$('.pb').forEach(b=>b.addEventListener('click',()=>{$$('.pb.on').forEach(x=>{x.classList.remove('on');x.classList.add('done')});b.classList.remove('done');b.classList.add('on');
+  tName=b.dataset.t;tEnd=Date.now()+(+b.dataset.min)*60000;tm.hidden=false;ts.hidden=false;clearInterval(tInt);tick();tInt=setInterval(tick,1000)}));
+ts.addEventListener('click',stopT);
+</script>
+
+</html>

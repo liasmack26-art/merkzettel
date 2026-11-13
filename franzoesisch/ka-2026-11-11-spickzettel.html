@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Spickzettel Französisch Quadrat</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,800&display=swap">
+<style>
+/* Layout: ein quadratisches Blatt, 4 Felder (2x2), gleiche Farben wie Lernpfad und Merkzettel. */
+:root{
+  --paper:#f3f6fb; --sheet:#ffffff; --ink:#18213a; --ink2:#59647c; --line:#d2dbee; --line2:#e8edf6;
+  --stamm:#1c58cf; --stamm-bg:#d9e5ff; --end:#bf5b00; --end-bg:#ffe3c4; --fut:#6a3cc2; --fut-bg:#e9deff; --imp:#11806e; --imp-bg:#cdeee6;
+  --bad:#c62f2e; --fem:#c2306b; --fem-bg:#fde0ec; --plu:#5b6478; --plu-bg:#e3e7ef;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#11151d; --sheet:#1a202b; --ink:#e7eaf1; --ink2:#a0a9bb; --line:#303b4f; --line2:#252e3d;
+  --stamm:#86adff; --stamm-bg:#233660; --end:#ffad60; --end-bg:#4a3216; --fut:#c0a6ff; --fut-bg:#362a57; --imp:#5ad0bb; --imp-bg:#173f39;
+  --bad:#ff7d79; --fem:#ff8ab8; --fem-bg:#4a1f33; --plu:#b4bccb; --plu-bg:#323a4a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#11151d; --sheet:#1a202b; --ink:#e7eaf1; --ink2:#a0a9bb; --line:#303b4f; --line2:#252e3d;
+  --stamm:#86adff; --stamm-bg:#233660; --end:#ffad60; --end-bg:#4a3216; --fut:#c0a6ff; --fut-bg:#362a57; --imp:#5ad0bb; --imp-bg:#173f39;
+  --bad:#ff7d79; --fem:#ff8ab8; --fem-bg:#4a1f33; --plu:#b4bccb; --plu-bg:#323a4a; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font:400 13px/1.35 var(--body);margin:0}
+.wrap{padding-block:16px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;place-items:center}
+.sq{width:min(100%,calc(100vh - 32px),920px);aspect-ratio:1/1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr 1fr;gap:8px;background:var(--sheet);border:1.5px solid var(--line);border-radius:12px;padding:12px}
+.hd{grid-column:1/-1;display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.hd b{font:800 1.25rem var(--display)}
+.hd span{color:var(--ink2);font-size:.8rem}
+.q{border:2px solid var(--k);border-radius:10px;padding:8px 10px;min-width:0;overflow:hidden;display:flex;flex-direction:column;gap:5px}
+.q h2{margin:0;font:800 1rem var(--display);color:var(--k)}
+.q1{--k:var(--stamm)} .q2{--k:var(--end)} .q3{--k:var(--fem)} .q4{--k:var(--fut)}
+.st{color:var(--stamm);font-weight:700} .en{color:var(--end);font-weight:700} .fe{color:var(--fut);font-weight:700} .im{color:var(--imp);font-weight:700}
+.reb{color:var(--fut);font-weight:700;text-decoration:underline}
+.box{background:var(--paper);border-radius:6px;padding:4px 7px}
+.k{color:var(--ink2);font-size:.78rem}
+.warn{color:var(--bad);font-weight:700}
+table{border-collapse:collapse;width:100%;font-size:.86rem}
+td,th{padding:1px 4px;border-bottom:1px solid var(--line2);text-align:left;white-space:nowrap}
+th{color:var(--ink2);font-weight:700}
+td:first-child{font-weight:700}
+.gf{color:var(--fem);font-weight:700} .gm{color:var(--stamm);font-weight:700} .gp{color:var(--plu);font-weight:700} .gc{color:var(--imp);font-weight:700}
+p{margin:0}
+.tw{overflow-x:auto}
+.q3 td,.q3 th{white-space:normal}
+@media (max-width:700px){
+  body{font-size:14px}
+  .sq{aspect-ratio:auto;grid-template-columns:1fr;grid-template-rows:auto}
+  .tw{overflow-x:auto}
+}
+</style>
+
+<div class="wrap"><div class="sq">
+  <div class="hd"><b>Französisch · Spickzettel</b><span>KA 11.11. · Unité 1</span></div>
+
+  <div class="q q1"><h2>1 · Conditionnel „würde“</h2>
+    <p class="box"><span class="st">Infinitiv</span> + <span class="en">-ais -ais -ait -ions -iez -aient</span> <span class="k">(-re: e weg → prendr-)</span></p>
+    <p><b>Stämme:</b> <span class="st">ser aur ir fer saur</span> · <span class="st">viendr voudr tiendr faudr</span> · <span class="st">pourr verr enverr courr</span> · <span class="st">devr recevr</span></p>
+    <p class="k">être, avoir, aller, faire · venir, vouloir · pouvoir · devoir</p>
+    <p><b>Wozu:</b> Rat <i>Tu devrais …</i> · Bitte <i>Pourrais-tu … ?</i> · Wunsch <i>J’aimerais / Je voudrais …</i> · Vermutung <i>il y aurait …</i></p>
+    <p><b>Traum:</b> Si <span class="im">j’avais</span> / <span class="im">j’étais</span> …, je <span class="st">ferais</span> … <span class="warn">nach si nie -rais!</span></p>
+    <p>parler<span class="fe">ai</span> werde · <span class="st">parler</span><span class="en">ais</span> würde · <span class="im">parl</span><span class="en">ais</span> sprach</p>
+  </div>
+
+  <div class="q q2"><h2>2 · Verben Präsens</h2>
+    <p class="box">-er <span class="en">e es e ons ez ent</span> · -ir <span class="en">is is it issons issez issent</span> · -re <span class="en">s s – ons ez ent</span></p>
+    <div class="tw"><table>
+      <tr><th></th><th>je</th><th>tu</th><th>il</th><th>nous</th><th>vous</th><th>ils</th></tr>
+      <tr><td>être</td><td>suis</td><td>es</td><td>est</td><td>sommes</td><td class="reb">êtes</td><td class="reb">sont</td></tr>
+      <tr><td>avoir</td><td>ai</td><td>as</td><td>a</td><td>avons</td><td>avez</td><td class="reb">ont</td></tr>
+      <tr><td>aller</td><td>vais</td><td>vas</td><td>va</td><td>allons</td><td>allez</td><td class="reb">vont</td></tr>
+      <tr><td>faire</td><td>fais</td><td>fais</td><td>fait</td><td>faisons</td><td class="reb">faites</td><td class="reb">font</td></tr>
+      <tr><td>vouloir</td><td>veux</td><td>veux</td><td>veut</td><td>voulons</td><td>voulez</td><td>veulent</td></tr>
+      <tr><td>pouvoir</td><td>peux</td><td>peux</td><td>peut</td><td>pouvons</td><td>pouvez</td><td>peuvent</td></tr>
+      <tr><td>venir</td><td>viens</td><td>viens</td><td>vient</td><td>venons</td><td>venez</td><td>viennent</td></tr>
+    </table></div>
+    <p class="k">Nur 4× -ont, nur 2× -tes · je ve<b>ux</b>/pe<b>ux</b> · ils vie<b>nn</b>ent · aller + Inf. = Zukunft</p>
+  </div>
+
+  <div class="q q3"><h2>3 · Pays &amp; prépositions</h2>
+    <div class="tw"><table>
+      <tr><th></th><th class="gf">la France</th><th class="gm">le Canada</th><th class="gp">les États-Unis</th><th class="gc">Paris</th></tr>
+      <tr><td>wo/wohin</td><td class="gf">en</td><td class="gm">au</td><td class="gp">aux</td><td class="gc">à</td></tr>
+      <tr><td>woher</td><td class="gf">de / d’</td><td class="gm">du</td><td class="gp">des</td><td class="gc">de / d’</td></tr>
+    </table></div>
+    <p class="box">à+le=<b>au</b> · à+les=<b>aux</b> · de+le=<b>du</b> · de+les=<b>des</b></p>
+    <p><b>1.</b> Verb: wohin (être, habiter, aller, voyager) oder woher (venir, revenir, rentrer <b>de</b>)? <b>2.</b> Artikel?</p>
+    <p>Endet auf <b>-e</b> → <span class="gf">la</span>, sonst <span class="gm">le</span>. <span class="warn">Ausnahme: le Mexique</span></p>
+    <p class="k"><span class="gf">en/d’</span> Allemagne, Espagne, Italie, Suisse · <span class="gm">au</span> Japon, Portugal, Maroc · <span class="gp">aux</span> Pays-Bas</p>
+  </div>
+
+  <div class="q q4"><h2>4 · Inhalt: Les jeunes</h2>
+    <p><b>Rêve:</b> Mon rêve, c’est de … · Ce serait génial de …</p>
+    <p><b>Avenir:</b> Plus tard, je voudrais devenir pilote. <span class="k">(ohne un)</span> · faire des études · passer le bac</p>
+    <p><b>Intérêts:</b> Je m’intéresse <b>à</b> … · Pendant mon temps libre, je … · faire <b>du</b> sport</p>
+    <p><b>Engagement:</b> C’est important pour moi d’aider les autres · faire du bénévolat · protéger l’environnement</p>
+    <p class="box">d’abord · ensuite · mais · parce que · en plus · donc · enfin · à mon avis · je pense que</p>
+    <p class="k">Text: 3 Verbindungswörter + 2 Conditionnel · Antwort zum Text: je → il/elle, mon → son</p>
+  </div>
+</div></div>
+
+</html>
