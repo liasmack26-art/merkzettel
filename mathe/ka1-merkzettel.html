@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Merkzettel Mathe KA 1</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap">
+<style>
+/* Layout: ein Spickzettel. Pro Thema ein Kasten mit Regel, Beispiel, Falle. Am PC zwei Spalten, am Handy eine. */
+:root{
+  --paper:#ffffff; --ink:#1b222c; --ink-2:#56616f; --rule:#d4dbe4; --wash:#f4f6f9;
+  --pen:#2147b9; --hl-y:#fff27a; --hl-g:#c6f0cb; --hl-r:#ffd3d8;
+  --font:"Lexend","Segoe UI",system-ui,-apple-system,Arial,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--paper:#14171b;--ink:#e4e8ed;--ink-2:#a1abb7;--rule:#323a44;--wash:#1a1f25;--pen:#8aacff;--hl-y:rgba(255,226,64,.30);--hl-g:rgba(80,200,120,.27);--hl-r:rgba(255,96,118,.28);color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#14171b;--ink:#e4e8ed;--ink-2:#a1abb7;--rule:#323a44;--wash:#1a1f25;--pen:#8aacff;--hl-y:rgba(255,226,64,.30);--hl-g:rgba(80,200,120,.27);--hl-r:rgba(255,96,118,.28);color-scheme:dark}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:.9375rem;line-height:1.5}
+.wrap{max-width:62rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:1.25rem 2.5rem;display:grid;gap:1.1rem}
+a{color:var(--pen)}
+h1,h2,p{margin:0}
+ul{margin:0;padding-left:1.1rem}
+li+li{margin-top:.15rem}
+.top{display:flex;flex-wrap:wrap;gap:.25rem 1rem;align-items:baseline;justify-content:space-between}
+.top h1{font-size:1.5rem;line-height:1.2}
+.top p{font-size:.8125rem;color:var(--ink-2)}
+.legend{display:flex;flex-wrap:wrap;gap:.25rem .9rem;font-size:.8125rem;color:var(--ink-2)}
+.hy,.hg,.hr{padding:.03em .2em;border-radius:.18em .4em .22em .35em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hy{background:var(--hl-y)}.hg{background:var(--hl-g)}.hr{background:var(--hl-r)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,28rem),1fr));gap:1.4rem 1.1rem;align-items:start}
+.card{border:1.5px solid var(--ink);padding:1rem .9rem .8rem;position:relative;display:grid;gap:.45rem;min-width:0}
+.card>h2{position:absolute;top:-.8em;left:.6rem;background:var(--paper);padding:0 .4rem;font-size:.875rem;letter-spacing:.02em}
+.card>h2 b{display:inline-block;min-width:1.4rem;text-align:center;border:1.5px solid var(--ink);margin-right:.35rem;font-size:.8125rem}
+.ex{border-left:3px solid var(--rule);padding-left:.6rem;font-size:.875rem;overflow-x:auto}
+.ex b{font-weight:600}
+.trap{font-size:.875rem}
+.tbl{border-collapse:collapse;font-size:.8125rem;width:100%}
+.tbl td,.tbl th{border:1px solid var(--rule);padding:.2rem .4rem;text-align:left;vertical-align:top}
+.tbl th{background:var(--wash);font-weight:600}
+.tw{overflow-x:auto}
+.traps{border:1.5px dashed var(--ink-2);padding:.8rem .9rem;display:grid;gap:.3rem}
+.traps h2{font-size:1rem}
+.foot{font-size:.8125rem;color:var(--ink-2);display:flex;flex-wrap:wrap;gap:.3rem 1rem}
+math{font-size:1.05em;font-family:"Cambria Math","STIX Two Math","Latin Modern Math","Noto Sans Math",math,serif}
+.katex:has(>math[display="block"]){display:block;overflow-x:auto;padding-block:.1rem}
+@media print{body{font-size:11px}.wrap{padding-block:0}.foot{display:none}.card{break-inside:avoid}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="top">
+    <h1>Merkzettel Mathe · KA 1</h1>
+    <p>Mo 16.11.2026 · Funktionen und ihre Graphen, Änderungsraten · Thema 4 kommt nicht dran</p>
+  </header>
+  <div class="legend"><span><span class="hy">gelb</span> Regel</span><span><span class="hg">grün</span> so geht's</span><span><span class="hr">rot</span> Falle</span></div>
+
+  <div class="grid">
+    <section class="card"><h2><b>1</b>Funktionsbegriff</h2>
+      <p>Jedem x aus <span class="hy">D</span> wird <span class="hy">genau ein</span> \(f(x)\) zugeordnet. <span class="hy">W</span> = alle y, die herauskommen.</p>
+      <p><span class="hg">D:</span> Nenner ≠ 0, unter der Wurzel ≥ 0. <span class="hg">W:</span> Graph skizzieren, y ablesen.</p>
+      <p class="ex"><b>Bsp:</b> \(h(x)=\sqrt{x+1}\): D = [−1; ∞), W = [0; ∞). · \(f(6)=3\) heißt \(P(6\,|\,3)\).</p>
+      <p class="trap"><span class="hr">Falle:</span> \(f(-3)\) bei \(x^2\) ist \((-3)^2=9\), nicht −9.</p>
+    </section>
+
+    <section class="card"><h2><b>2</b>Verschieben und Strecken</h2>
+      <p>\(g(x)=a\cdot f(x-b)+c\)</p>
+      <ul>
+        <li><span class="hy">a</span>: Streckung in y-Richtung, a &lt; 0: zusätzlich an der x-Achse spiegeln</li>
+        <li><span class="hy">b</span>: in x-Richtung, <b>\(x-3\) → 3 nach rechts</b>, \(x+3\) → links</li>
+        <li><span class="hy">c</span>: in y-Richtung (+ oben, − unten)</li>
+      </ul>
+      <p class="ex"><b>Bsp:</b> \(-2(x-1)^2+4\) aus \(x^2\): mit Faktor 2 in y-Richtung strecken, an der x-Achse spiegeln, 1 nach rechts, 4 nach oben.</p>
+      <p class="trap"><span class="hg">Erst strecken, dann verschieben.</span> Faktor immer nennen.</p>
+    </section>
+
+    <section class="card"><h2><b>3</b>Grundfunktionen skizzieren</h2>
+      <div class="tw"><table class="tbl">
+        <tr><th>\(x^2\)</th><td>(±1|1), (±2|4)</td><th>\(\sqrt x\)</th><td>(0|0), (1|1), (4|2), (9|3)</td></tr>
+        <tr><th>\(x^3\)</th><td>(1|1), (−1|−1), Sattel (0|0)</td><th>\(\frac1x\)</th><td>(1|1), (2|½), Achsen = Asymptoten</td></tr>
+        <tr><th>\(x^4\)</th><td>wie Parabel, bei 0 flacher</td><th>\(\frac1{x^2}\)</th><td>(±1|1), beide Äste oben</td></tr>
+      </table></div>
+      <p><span class="hg">So geht's:</span> besonderen Punkt nach \((b\,|\,c)\), Asymptoten mitschieben, Merkpunkte abtragen (y-Abstände mal a).</p>
+      <p class="ex"><b>Bsp:</b> \(\frac1x+2\): Asymptoten x = 0 und y = 2, Punkte (1|3), (−1|1).</p>
+    </section>
+
+    <section class="card"><h2><b>5</b>Ganzrationale Funktionen</h2>
+      <p>\(a_nx^n+\dots+a_1x+a_0\) mit <span class="hy">Hochzahlen 0, 1, 2, …</span> Nicht: \(\frac1x\), \(\sqrt x\), \(2^x\).</p>
+      <p><span class="hy">Globalverlauf: nur \(a_nx^n\) zählt.</span></p>
+      <div class="tw"><table class="tbl">
+        <tr><th></th><th>\(a_n\gt0\)</th><th>\(a_n\lt0\)</th></tr>
+        <tr><th>n gerade</th><td>links oben → rechts oben</td><td>links unten → rechts unten</td></tr>
+        <tr><th>n ungerade</th><td>links unten → rechts oben</td><td>links oben → rechts unten</td></tr>
+      </table></div>
+      <p class="ex"><b>Bsp:</b> \(x(x-2)(3-x)\): höchste Potenz \(x\cdot x\cdot(-x)=-x^3\) → links oben, rechts unten.</p>
+      <p class="trap"><span class="hg">Zuordnen:</span> Globalverlauf → \(f(0)=a_0\) → Symmetrie → Nullstellen. Mit „weil …“ begründen.</p>
+    </section>
+
+    <section class="card"><h2><b>6</b>Symmetrie</h2>
+      <p><span class="hy">y-Achse:</span> \(f(-x)=f(x)\) · <span class="hy">Ursprung:</span> \(f(-x)=-f(x)\)</p>
+      <p>Ganzrational: nur gerade Hochzahlen → y-Achse, nur ungerade → Ursprung, gemischt → keine. <span class="hg">Zahl ohne x = \(x^0\) = gerade.</span></p>
+      <p class="ex"><b>Bsp:</b> \(f(x)=\frac1{x^2+1}\): \(f(-x)=\frac1{(-x)^2+1}=f(x)\) → y-Achse.</p>
+      <p class="trap"><span class="hr">Falle:</span> \(x^3+x+1\) ist <b>nicht</b> punktsymmetrisch. Bei Brüchen immer \(f(-x)\) rechnen, ein Zahlenbeispiel ist kein Beweis.</p>
+    </section>
+
+    <section class="card"><h2><b>7</b>Nullstellen</h2>
+      <p><span class="hy">\(f(x)=0\) setzen.</span> SvNP: Produkt = 0, wenn ein Faktor = 0.</p>
+      <div class="tw"><table class="tbl">
+        <tr><td>Produkt</td><td>jeden Faktor = 0</td></tr>
+        <tr><td>keine Zahl ohne x</td><td>x-Potenz ausklammern</td></tr>
+        <tr><td>nur \(x^4\), \(x^2\), Zahl</td><td>\(u=x^2\), pq, zurück: \(x=\pm\sqrt u\)</td></tr>
+        <tr><td>\(x^2\), \(x\), Zahl</td><td>durch a teilen, pq-Formel</td></tr>
+      </table></div>
+      <p>\[x_{1,2}=-\frac p2\pm\sqrt{\left(\frac p2\right)^2-q}\]</p>
+      <p class="ex"><b>Bsp:</b> \(x^4-13x^2+36\): \(u^2-13u+36=0\Rightarrow u=9;\,4\Rightarrow x=\pm3;\,\pm2\)</p>
+      <p class="trap"><span class="hr">Fallen:</span> Rücksubstitution vergessen · \(x^2=9\) hat ±3 · nie durch x teilen · u &lt; 0: keine Lösung.</p>
+    </section>
+
+    <section class="card"><h2><b>8</b>Mehrfache Nullstellen</h2>
+      <p>Hochzahl der Klammer = Vielfachheit. <span class="hy">ungerade → schneidet</span> (dreifach: flach, Sattelstelle), <span class="hy">gerade → berührt</span>.</p>
+      <p><span class="hg">Skizze:</span> Grad = Summe der Hochzahlen, Vorzeichen von a → Globalverlauf, von links durchgehen, f(0) prüfen.</p>
+      <p class="ex"><b>Bsp:</b> \(0{,}5(x+2)(x-1)^2\): bei −2 schneiden, bei 1 berühren, Grad 3, a &gt; 0 → links unten, rechts oben, \(f(0)=1\).</p>
+      <p class="trap">Grad n → höchstens n Nullstellen. Ungerader Grad → mindestens eine.</p>
+    </section>
+
+    <section class="card"><h2><b>9</b>Mittlere Änderungsrate</h2>
+      <p>\[\frac{f(b)-f(a)}{b-a}\] = <span class="hy">Steigung der Sekante</span> durch \(A(a\,|\,f(a))\) und \(B(b\,|\,f(b))\). Einheit: y pro x.</p>
+      <p class="ex"><b>Bsp:</b> \(3x^2-2\) auf \([-1;3]\): \(\frac{25-1}{3-(-1)}=6\) · Tabelle 185 km nach 2 h, 470 km nach 4 h: \(\frac{285}2=142{,}5\) km/h</p>
+      <p class="trap"><span class="hr">Falle:</span> Klammer bei negativem Wert: \(0-(-2)=2\). Oben und unten Ende minus Anfang.</p>
+    </section>
+
+    <section class="card"><h2><b>10</b>Momentane Änderungsrate</h2>
+      <p>Intervall immer kleiner → Sekante wird <span class="hy">Tangente</span>.</p>
+      <p>\[f'(a)=\lim_{x\to a}\frac{f(x)-f(a)}{x-a}\] = <span class="hy">Steigung der Tangente</span> in \(P(a\,|\,f(a))\)</p>
+      <p><span class="hg">Ermitteln:</span> Differenzenquotienten für h = 0,1; 0,01; 0,001 rechnen oder Tangente anlegen und Steigungsdreieck ablesen.</p>
+      <p class="ex"><b>Bsp:</b> \(s(t)=5t^2\), t = 1: 10,5; 10,05; 10,005 → <b>10 m/s</b></p>
+      <p class="trap"><span class="hr">Falle:</span> Steigung angeben, nicht den Funktionswert (s(1) = 5 m ist der Weg).</p>
+    </section>
+
+    <section class="traps"><h2>Kurz vor der Abgabe prüfen</h2>
+      <ul>
+        <li>Negative Zahlen in Klammern eingesetzt?</li>
+        <li>Bei \(x^2=\dots\) beide Lösungen (±)?</li>
+        <li>Nach Substitution zurück zu x?</li>
+        <li>Einheit und Antwortsatz hingeschrieben?</li>
+        <li>Skizze: passt rechts der Globalverlauf?</li>
+      </ul>
+    </section>
+  </div>
+
+  <footer class="foot"><a href="../index.html">← Alle Fächer</a><a href="ka1-lernseite.html">Ausführliche Lernseite mit Aufgaben</a></footer>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script>
+if(window.renderMathInElement)renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}],output:'mathml',throwOnError:false,strict:false});
+</script>
+</body>
+</html>
