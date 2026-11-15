@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Formelsammlung Mathe KA 1</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap">
+<style>
+/* Layout: Formelsammlung wie im Tafelwerk. Pro Formel eine Zeile: Formel | wofür | Beispiel. Am Handy untereinander. */
+:root{
+  --paper:#ffffff; --ink:#1b222c; --ink-2:#56616f; --rule:#d4dbe4; --wash:#f4f6f9;
+  --pen:#2147b9; --hl-y:#fff27a;
+  --font:"Lexend","Segoe UI",system-ui,-apple-system,Arial,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--paper:#14171b;--ink:#e4e8ed;--ink-2:#a1abb7;--rule:#323a44;--wash:#1a1f25;--pen:#8aacff;--hl-y:rgba(255,226,64,.30);color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#14171b;--ink:#e4e8ed;--ink-2:#a1abb7;--rule:#323a44;--wash:#1a1f25;--pen:#8aacff;--hl-y:rgba(255,226,64,.30);color-scheme:dark}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:.9375rem;line-height:1.5}
+.wrap{max-width:60rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:1.25rem 2.5rem;display:grid;gap:1.4rem}
+a{color:var(--pen)}
+h1,h2,p{margin:0}
+.top{display:grid;gap:.3rem}
+.top h1{font-size:1.5rem;line-height:1.2}
+.top p{font-size:.8125rem;color:var(--ink-2)}
+.jump{display:flex;flex-wrap:wrap;gap:.35rem}
+.jump a{font-size:.8125rem;border:1px solid var(--rule);border-radius:4px;padding:.15rem .5rem;text-decoration:none;color:var(--ink)}
+section{display:grid;gap:0}
+section>h2{font-size:1rem;border-bottom:2px solid var(--ink);padding-bottom:.3rem;margin-bottom:.2rem}
+.head,.row{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) minmax(0,1.35fr);gap:.4rem 1rem;align-items:center}
+.head{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);font-weight:700;padding:.2rem 0}
+.row{border-bottom:1px solid var(--rule);padding:.55rem 0}
+.row>*{min-width:0;overflow-x:auto}
+.f{font-size:1.02rem}
+.w{font-size:.875rem}
+.b{font-size:.875rem;color:var(--ink);border-left:3px solid var(--rule);padding-left:.6rem}
+.hy{background:var(--hl-y);padding:.03em .2em;border-radius:.18em .4em .22em .35em}
+.k{font-size:.75rem;font-weight:700;color:var(--ink-2);display:none}
+.tbl{border-collapse:collapse;font-size:.8125rem}
+.tbl td,.tbl th{border:1px solid var(--rule);padding:.15rem .4rem;text-align:left}
+.tbl th{background:var(--wash);font-weight:600}
+.foot{font-size:.8125rem;color:var(--ink-2);display:flex;flex-wrap:wrap;gap:.3rem 1rem}
+math{font-size:1.05em;font-family:"Cambria Math","STIX Two Math","Latin Modern Math","Noto Sans Math",math,serif}
+.katex:has(>math[display="block"]){display:block;overflow-x:auto}
+@media (max-width:44rem){
+  .head{display:none}
+  .row{grid-template-columns:minmax(0,1fr);gap:.25rem}
+  .k{display:block}
+}
+@media print{body{font-size:11px}.jump,.foot{display:none}.row{break-inside:avoid}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="top">
+    <h1>Formelsammlung Mathe · KA 1</h1>
+    <p>Alle Formeln für Montag, 16.11.2026, jeweils mit Beispiel. <span class="hy">Gelb</span> = besonders wichtig.</p>
+  </header>
+  <nav class="jump" aria-label="Bereiche">
+    <a href="#funktionen">Funktionen</a><a href="#graphen">Graphen</a><a href="#rechnen">Rechenregeln</a><a href="#nullstellen">Nullstellen</a><a href="#aenderung">Änderungsrate</a>
+  </nav>
+
+  <section id="funktionen"><h2>Funktionen, D und W</h2>
+    <div class="head"><span>Formel</span><span>wofür</span><span>Beispiel</span></div>
+    <div class="row"><div class="f">\(f(x_0)=y_0\ \Leftrightarrow\ P(x_0\,|\,y_0)\) liegt auf dem Graphen</div><div class="w"><span class="k">wofür</span>Funktionswert, Punktprobe</div><div class="b"><span class="k">Beispiel</span>\(f(x)=2x^2+1\): \(f(-2)=9\), also liegt \(P(-2\,|\,9)\) drauf.</div></div>
+    <div class="row"><div class="f">Nenner \(\neq0\) · unter der Wurzel \(\geq0\)</div><div class="w"><span class="k">wofür</span>Definitionsmenge D finden</div><div class="b"><span class="k">Beispiel</span>\(\frac1{x-3}\): D = ℝ \ {3} · \(\sqrt{x+1}\): D = [−1; ∞)</div></div>
+    <div class="row"><div class="f">
+      <table class="tbl"><tr><th></th><th>D</th><th>W</th></tr>
+      <tr><td>\(x^2\)</td><td>ℝ</td><td>[0; ∞)</td></tr><tr><td>\(x^3\)</td><td>ℝ</td><td>ℝ</td></tr>
+      <tr><td>\(\sqrt x\)</td><td>[0; ∞)</td><td>[0; ∞)</td></tr><tr><td>\(\frac1x\)</td><td>ℝ \ {0}</td><td>ℝ \ {0}</td></tr>
+      <tr><td>\(\frac1{x^2}\)</td><td>ℝ \ {0}</td><td>(0; ∞)</td></tr></table></div>
+      <div class="w"><span class="k">wofür</span>D und W der Grundfunktionen</div><div class="b"><span class="k">Beispiel</span>\(x^2+2\): Parabel 2 nach oben, also W = [2; ∞)</div></div>
+  </section>
+
+  <section id="graphen"><h2>Graphen: verschieben, Globalverlauf, Symmetrie</h2>
+    <div class="head"><span>Formel</span><span>wofür</span><span>Beispiel</span></div>
+    <div class="row"><div class="f"><span class="hy">\(g(x)=a\cdot f(x-b)+c\)</span></div><div class="w"><span class="k">wofür</span>a: Streckung in y-Richtung (a &lt; 0: spiegeln), b: nach rechts, c: nach oben</div><div class="b"><span class="k">Beispiel</span>\(3(x-2)^3-1\): \(x^3\) mit 3 strecken, 2 nach rechts, 1 nach unten. Sattelpunkt (2|−1).</div></div>
+    <div class="row"><div class="f">\(f(x)=a_nx^n+\dots+a_1x+a_0\)<br><span class="w">\(a_n\neq0\), Hochzahlen 0, 1, 2, …</span></div><div class="w"><span class="k">wofür</span>ganzrationale Funktion vom Grad n</div><div class="b"><span class="k">Beispiel</span>\((x^2-1)x^2=x^4-x^2\): ganzrational, Grad 4 · \(\frac3x=3x^{-1}\): nicht</div></div>
+    <div class="row"><div class="f">
+      <table class="tbl"><tr><th></th><th>\(a_n\gt0\)</th><th>\(a_n\lt0\)</th></tr>
+      <tr><th>n gerade</th><td>oben, oben</td><td>unten, unten</td></tr>
+      <tr><th>n ungerade</th><td>unten → oben</td><td>oben → unten</td></tr></table></div>
+      <div class="w"><span class="k">wofür</span>Globalverlauf (links → rechts), nur \(a_nx^n\) zählt</div><div class="b"><span class="k">Beispiel</span>\(-3x^5+x^2\): n = 5 ungerade, \(a_5\lt0\) → von links oben nach rechts unten</div></div>
+    <div class="row"><div class="f">\(f(0)=a_0\)</div><div class="w"><span class="k">wofür</span>Schnittpunkt mit der y-Achse</div><div class="b"><span class="k">Beispiel</span>\(x^3-3x-1\): schneidet die y-Achse bei −1</div></div>
+    <div class="row"><div class="f"><span class="hy">\(f(-x)=f(x)\)</span></div><div class="w"><span class="k">wofür</span>achsensymmetrisch zur y-Achse (ganzrational: nur gerade Hochzahlen)</div><div class="b"><span class="k">Beispiel</span>\(\frac1{x^2+1}\): \(f(-x)=\frac1{(-x)^2+1}=f(x)\)</div></div>
+    <div class="row"><div class="f"><span class="hy">\(f(-x)=-f(x)\)</span></div><div class="w"><span class="k">wofür</span>punktsymmetrisch zum Ursprung (ganzrational: nur ungerade Hochzahlen)</div><div class="b"><span class="k">Beispiel</span>\(\frac x{x^2+1}\): \(f(-x)=\frac{-x}{x^2+1}=-f(x)\)</div></div>
+  </section>
+
+  <section id="rechnen"><h2>Rechenregeln</h2>
+    <div class="head"><span>Formel</span><span>wofür</span><span>Beispiel</span></div>
+    <div class="row"><div class="f">\((-x)^{\text{gerade}}=x^{\text{gerade}}\)<br>\((-x)^{\text{ungerade}}=-x^{\text{ungerade}}\)</div><div class="w"><span class="k">wofür</span>Symmetrie prüfen, negative Zahlen einsetzen</div><div class="b"><span class="k">Beispiel</span>\((-2)^4=16\) · \((-2)^3=-8\)</div></div>
+    <div class="row"><div class="f">\(x^{-1}=\frac1x\) · \(x^{\frac12}=\sqrt x\) · \(x^0=1\)</div><div class="w"><span class="k">wofür</span>erkennen, ob ganzrational</div><div class="b"><span class="k">Beispiel</span>\(4x^{10}-\sqrt x\): \(\sqrt x=x^{\frac12}\), also nicht ganzrational</div></div>
+    <div class="row"><div class="f">\((a+b)^2=a^2+2ab+b^2\)<br>\((a-b)^2=a^2-2ab+b^2\)<br>\((a+b)(a-b)=a^2-b^2\)</div><div class="w"><span class="k">wofür</span>binomische Formeln: faktorisieren, ausmultiplizieren, kürzen</div><div class="b"><span class="k">Beispiel</span>\(x^2-6x+9=(x-3)^2\) · \(x^2-9=(x-3)(x+3)\)</div></div>
+  </section>
+
+  <section id="nullstellen"><h2>Nullstellen</h2>
+    <div class="head"><span>Formel</span><span>wofür</span><span>Beispiel</span></div>
+    <div class="row"><div class="f"><span class="hy">\(f(x)=0\)</span></div><div class="w"><span class="k">wofür</span>Ansatz für jede Nullstelle</div><div class="b"><span class="k">Beispiel</span>\(5x-4=0\Rightarrow x=0{,}8\)</div></div>
+    <div class="row"><div class="f">\(a\cdot b=0\ \Leftrightarrow\ a=0\ \text{oder}\ b=0\)</div><div class="w"><span class="k">wofür</span>Satz vom Nullprodukt (SvNP)</div><div class="b"><span class="k">Beispiel</span>\(x(x^2-9)=0\Rightarrow x=0;\ \pm3\)</div></div>
+    <div class="row"><div class="f">\(x^n=a\): n gerade: \(x=\pm\sqrt[n]a\) (a &lt; 0: keine Lösung)<br>n ungerade: \(x=\sqrt[n]a\)</div><div class="w"><span class="k">wofür</span>Potenzgleichung</div><div class="b"><span class="k">Beispiel</span>\(x^4=16\Rightarrow\pm2\) · \(x^3=-8\Rightarrow-2\) · \(x^6=-4\): keine</div></div>
+    <div class="row"><div class="f"><span class="hy">\(x_{1,2}=-\frac p2\pm\sqrt{\left(\frac p2\right)^2-q}\)</span></div><div class="w"><span class="k">wofür</span>pq-Formel für \(x^2+px+q=0\) (vorher durch die Zahl vor \(x^2\) teilen)</div><div class="b"><span class="k">Beispiel</span>\(x^2-6x+5=0\): \(x=3\pm\sqrt{9-5}=3\pm2\Rightarrow1;\ 5\)</div></div>
+    <div class="row"><div class="f">\(x_{1,2}=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\)</div><div class="w"><span class="k">wofür</span>abc-Formel für \(ax^2+bx+c=0\) (Buch: Lösungsformel)</div><div class="b"><span class="k">Beispiel</span>\(2x^2+4x-6=0\): \(x=\frac{-4\pm\sqrt{16+48}}4=\frac{-4\pm8}4\Rightarrow1;\ -3\)</div></div>
+    <div class="row"><div class="f">\(\left(\frac p2\right)^2-q\ \ \gt0\): 2 · \(=0\): 1 · \(\lt0\): keine</div><div class="w"><span class="k">wofür</span>Anzahl der Lösungen (unter der Wurzel)</div><div class="b"><span class="k">Beispiel</span>\(x^2+2x+5\): \(1-5=-4\lt0\), keine Nullstelle</div></div>
+    <div class="row"><div class="f"><span class="hy">\(u=x^2\)</span>, dann \(x=\pm\sqrt u\)</div><div class="w"><span class="k">wofür</span>Substitution bei \(ax^4+bx^2+c\) (u &lt; 0: keine Lösung)</div><div class="b"><span class="k">Beispiel</span>\(x^4-10x^2+9\): \(u^2-10u+9=0\Rightarrow u=9;1\Rightarrow x=\pm3;\ \pm1\)</div></div>
+    <div class="row"><div class="f">\(f(x)=a(x-x_1)^{k_1}(x-x_2)^{k_2}\cdots\)</div><div class="w"><span class="k">wofür</span>Linearfaktorform: k ungerade → schneidet, k gerade → berührt. Grad = Summe der k</div><div class="b"><span class="k">Beispiel</span>\(-(x-1)^2(x+3)\): 1 doppelt (berührt), −3 einfach, Grad 3, links oben → rechts unten</div></div>
+  </section>
+
+  <section id="aenderung"><h2>Änderungsrate und Steigung</h2>
+    <div class="head"><span>Formel</span><span>wofür</span><span>Beispiel</span></div>
+    <div class="row"><div class="f">\(m=\frac{y_2-y_1}{x_2-x_1}=\frac{\Delta y}{\Delta x}\) · \(y=mx+c\)</div><div class="w"><span class="k">wofür</span>Steigung und Gleichung einer Geraden</div><div class="b"><span class="k">Beispiel</span>\(A(0\,|\,-1)\), \(B(2\,|\,3)\): \(m=\frac42=2\), \(y=2x-1\)</div></div>
+    <div class="row"><div class="f"><span class="hy">\(\frac{f(b)-f(a)}{b-a}\)</span></div><div class="w"><span class="k">wofür</span>Differenzenquotient = mittlere Änderungsrate auf [a; b] = Sekantensteigung</div><div class="b"><span class="k">Beispiel</span>\(x^2-2x\) auf [1; 4]: \(\frac{8-(-1)}{4-1}=3\)</div></div>
+    <div class="row"><div class="f">\(\bar v=\frac{\Delta s}{\Delta t}\)</div><div class="w"><span class="k">wofür</span>Durchschnittsgeschwindigkeit (Einheit: y pro x)</div><div class="b"><span class="k">Beispiel</span>\(\frac{470\,\text{km}-185\,\text{km}}{4\,\text{h}-2\,\text{h}}=142{,}5\) km/h</div></div>
+    <div class="row"><div class="f"><span class="hy">\(f'(a)=\lim\limits_{x\to a}\frac{f(x)-f(a)}{x-a}\)</span></div><div class="w"><span class="k">wofür</span>Ableitung = momentane Änderungsrate = Tangentensteigung in \(P(a\,|\,f(a))\)</div><div class="b"><span class="k">Beispiel</span>\(x^2\), a = 1: \(\frac{x^2-1}{x-1}=x+1\to2\), also \(f'(1)=2\)</div></div>
+    <div class="row"><div class="f">\(f'(a)=\lim\limits_{h\to0}\frac{f(a+h)-f(a)}h\)</div><div class="w"><span class="k">wofür</span>dasselbe mit h (h-Methode)</div><div class="b"><span class="k">Beispiel</span>\(x^2\), a = 3: \(\frac{(3+h)^2-9}h=6+h\to6\)</div></div>
+    <div class="row"><div class="f">\(\frac{f(a+h)-f(a)}h\) für h = 0,1; 0,01; 0,001</div><div class="w"><span class="k">wofür</span>momentane Änderungsrate mit Tabelle annähern</div><div class="b"><span class="k">Beispiel</span>\(s(t)=5t^2\), t = 1: 10,5; 10,05; 10,005 → 10 m/s</div></div>
+    <div class="row"><div class="f">\(y=f'(a)\cdot(x-a)+f(a)\)</div><div class="w"><span class="k">wofür</span>Tangentengleichung (nur falls gefragt)</div><div class="b"><span class="k">Beispiel</span>\(x^2\), a = 1: \(y=2(x-1)+1=2x-1\)</div></div>
+  </section>
+
+  <footer class="foot"><a href="../index.html">← Alle Fächer</a><a href="ka1-merkzettel.html">Kompakter Merkzettel</a><a href="ka1-lernseite.html">Ausführliche Lernseite</a></footer>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script>
+if(window.renderMathInElement)renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}],output:'mathml',throwOnError:false,strict:false});
+</script>
+</body>
+</html>
