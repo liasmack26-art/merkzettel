@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Merkzettel Klausur Nr. 1</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="ka1.css">
+</head>
+<body>
+<main class="wrap">
+  <header style="display:grid;gap:.4rem">
+    <p class="kicker">Mathe · Klausur Nr. 1 · Mittwoch, 18.11.2026</p>
+    <h1>Merkzettel zu den Aufgaben der Klausur</h1>
+    <p class="sub">Nur die 7 Aufgabentypen aus der Arbeit der Parallelklasse, in derselben Reihenfolge. Jeweils Regel, Beispiel mit anderen Zahlen und Zeichnung. <span class="hy">gelb</span> Regel · <span class="hg">grün</span> so geht's · <span class="hr">rot</span> Falle</p>
+  </header>
+
+  <section class="card"><h2>1 · Nullstellen berechnen</h2>
+    <p><span class="hy">\(f(x)=0\) setzen.</span> Dann das passende Werkzeug:</p>
+    <ul>
+      <li><span class="hg">Keine Zahl ohne x:</span> x ausklammern, dann Satz vom Nullprodukt.</li>
+      <li><span class="hg">Nur \(x^4\), \(x^2\), Zahl:</span> Substitution \(u=x^2\), pq-Formel, zurück: \(x=\pm\sqrt u\).</li>
+    </ul>
+    <div class="ex"><b>Beispiel 1:</b> \(3x^4-24x=0\Rightarrow3x\,(x^3-8)=0\Rightarrow x_1=0;\ x^3=8\Rightarrow x_2=2\)</div>
+    <div class="ex"><b>Beispiel 2:</b> \(x^4-10x^2+9=0\Rightarrow u^2-10u+9=0\Rightarrow u=9;\ 1\Rightarrow x=\pm3;\ \pm1\)</div>
+    <p>\[x_{1,2}=-\frac p2\pm\sqrt{\left(\frac p2\right)^2-q}\]</p>
+    <p><span class="hr">Fallen:</span> nie durch x teilen · nach der Substitution zurück zu x · \(x^2=9\) hat ±3, aber \(x^3=8\) nur 2.</p>
+  </section>
+
+  <section class="card"><h2>2 · Ganzrational? Grad?</h2>
+    <p><span class="hy">Ganzrational:</span> nur x-Potenzen mit Hochzahlen 0, 1, 2, … Davor darf jede Zahl stehen, auch \(\sqrt7\). <span class="hy">Grad</span> = höchste Hochzahl.</p>
+    <div class="tw"><table class="tbl">
+      <tr><th>Term</th><th>Antwort</th></tr>
+      <tr><td>\(\sqrt5\,x^3-x+1\)</td><td>ganzrational, Grad 3</td></tr>
+      <tr><td>\(x^3\cdot(x-4x^2)=x^4-4x^5\)</td><td>erst ausmultiplizieren: ganzrational, Grad 5</td></tr>
+      <tr><td>\(2\sqrt x+x^2\)</td><td>nicht, \(\sqrt x=x^{\frac12}\)</td></tr>
+      <tr><td>\(\frac4x+x\)</td><td>nicht, \(\frac4x=4x^{-1}\)</td></tr>
+    </table></div>
+    <p><span class="hr">Falle:</span> \(\sqrt7\,x^4\) ist okay (Wurzel im Koeffizienten), \(\sqrt x\) nicht (x unter der Wurzel).</p>
+  </section>
+
+  <section class="card"><h2>3 · Verschieben und Strecken beschreiben</h2>
+    <p>\(g(x)=a\cdot f(x-b)+c\): <span class="hy">a</span> Streckung in y-Richtung (Minus: an der x-Achse spiegeln), <span class="hy">b</span> nach rechts (\(x-2\) → rechts, \(x+2\) → links), <span class="hy">c</span> nach oben/unten.</p>
+    <div class="ex"><b>Beispiel a:</b> \(f(x)=x^3\), \(g(x)=0{,}5x^3+2\): „Man erhält den Graphen von g, indem man den Graphen von f mit dem Faktor 0,5 in y-Richtung streckt und um 2 nach oben verschiebt.“</div>
+    <div class="ex"><b>Beispiel b:</b> \(f(x)=\sqrt x\), \(g(x)=-\sqrt{x+1}\): „… indem man den Graphen von f an der x-Achse spiegelt und um 1 nach links verschiebt.“</div>
+    <div class="figs"><figure><div data-plot="m3a"></div><figcaption>Beispiel a: grau f, blau g</figcaption></figure><figure><div data-plot="m3b"></div><figcaption>Beispiel b: Startpunkt (−1|0), geht nach unten</figcaption></figure></div>
+    <p><span class="hg">Antwortsatz immer gleich anfangen:</span> „Man erhält den Graphen von g, indem man …“</p>
+  </section>
+
+  <section class="card"><h2>4 · Linearfaktorform: f(0), Grad, Nullstellen, Skizze</h2>
+    <p><span class="hy">f(0):</span> 0 einsetzen. <span class="hy">Grad:</span> Hochzahlen der Klammern addieren. <span class="hy">Nullstellen:</span> jede Klammer = 0, Hochzahl = Vielfachheit. <span class="hy">Gerade → berührt, ungerade → schneidet.</span></p>
+    <div class="ex"><b>Beispiel:</b> \(g(x)=(x-1)^2\cdot(x+2)^2\)
+      <span>\(g(0)=(-1)^2\cdot2^2=4\) · Grad \(2+2=4\)</span>
+      <span>\(x=1\) doppelt, \(x=-2\) doppelt → berührt beide Male</span>
+      <span>Grad 4, Vorfaktor +1 → beide Enden oben → W-Form</span></div>
+    <div class="figs"><figure><div data-plot="m4a"></div><figcaption>\((x-1)^2(x+2)^2\): berührt bei −2 und 1</figcaption></figure><figure><div data-plot="m4b"></div><figcaption>Zum Vergleich \((x-1)^2(x+2)\): berührt bei 1, schneidet bei −2</figcaption></figure></div>
+    <p><span class="hg">Skizze:</span> Globalverlauf → Nullstellen eintragen → von links durchgehen → f(0) als Kontrollpunkt.</p>
+  </section>
+
+  <section class="card"><h2>5 · Globalverlauf und Symmetrie</h2>
+    <p><span class="hg">Erst nach Hochzahlen sortieren,</span> dann nur den Summanden mit der höchsten Hochzahl anschauen.</p>
+    <div class="tw"><table class="tbl">
+      <tr><th></th><th>\(a_n\gt0\)</th><th>\(a_n\lt0\)</th></tr>
+      <tr><th>Grad gerade</th><td>links oben → rechts oben</td><td>links unten → rechts unten</td></tr>
+      <tr><th>Grad ungerade</th><td>links unten → rechts oben</td><td>links oben → rechts unten</td></tr>
+    </table></div>
+    <p><span class="hy">Symmetrie:</span> nur gerade Hochzahlen → y-Achse · nur ungerade → Ursprung · gemischt → keine. Die Zahl ohne x zählt als gerade.</p>
+    <div class="ex"><b>Beispiel 1:</b> \(f(x)=-x^4+3x^2+1\): Grad 4, \(a\lt0\) → für \(x\to\pm\infty\) gilt \(f(x)\to-\infty\). Hochzahlen 4, 2, 0 → achsensymmetrisch zur y-Achse.</div>
+    <div class="ex"><b>Beispiel 2:</b> \(f(x)=2x^2-0{,}5x^5+x^3\) → sortiert \(-0{,}5x^5+x^3+2x^2\): Grad 5, \(a\lt0\) → von links oben nach rechts unten. Hochzahlen 5, 3, 2 gemischt → keine Symmetrie.</div>
+    <p><span class="hr">Falle:</span> Die höchste Potenz steht nicht immer vorne.</p>
+  </section>
+
+  <section class="card"><h2>6 · Graphen von 1/x² verschieben und skizzieren</h2>
+    <p><span class="hy">\(f(x)=\frac1{x^2}\):</span> beide Äste oben, symmetrisch zur y-Achse, Punkte (±1|1), (±2|¼). Asymptoten x = 0 und y = 0.</p>
+    <p><span class="hg">+c hinten:</span> c nach oben, waagerechte Asymptote y = c. <span class="hg">(x − b) unten:</span> b nach rechts, senkrechte Asymptote x = b.</p>
+    <div class="ex"><b>Beispiel:</b> \(g(x)=\frac1{x^2}-1\): Asymptote y = −1, Punkte (±1|0). \(h(x)=\frac1{(x+2)^2}\): Asymptote x = −2, Punkte (−1|1), (−3|1).</div>
+    <div data-plot="m6"></div>
+    <p class="note">Grau gestrichelt: f. Blau: g. Rot: h. Gestrichelt die Asymptoten, die immer mitwandern.</p>
+  </section>
+
+  <section class="card"><h2>7 · Sachaufgabe: fallender Stein</h2>
+    <p>Beispiel: \(h(t)=45-5t^2\) (t in s, h in m). <span class="hy">Jede Teilaufgabe mit Antwortsatz!</span></p>
+    <div class="ex"><b>Höhe nach 1 s:</b> einsetzen: \(h(1)=45-5=40\). „Nach 1 s ist der Stein 40 m hoch.“</div>
+    <div class="ex"><b>Wann in 25 m Höhe?</b> gleichsetzen: \(45-5t^2=25\Rightarrow5t^2=20\Rightarrow t^2=4\Rightarrow t=2\). <span class="hr">\(t=-2\) entfällt</span>, Zeit ist nie negativ.</div>
+    <div class="ex"><b>Durchschnittsgeschwindigkeit in [0; 2]:</b> \(\frac{h(2)-h(0)}{2-0}=\frac{25-45}2=-10\). „Sie beträgt 10 m/s, das Minus heißt: Der Stein fällt.“</div>
+    <div class="ex"><b>Momentane Geschwindigkeit bei t = 2</b> durch kleinere Intervalle:</div>
+    <div class="tw"><table class="tbl">
+      <tr><th>Intervall</th><td>[2; 2,1]</td><td>[2; 2,01]</td><td>[2; 2,001]</td></tr>
+      <tr><th>\(\frac{h(b)-h(2)}{b-2}\)</th><td>−20,5</td><td>−20,05</td><td>−20,005</td></tr>
+    </table></div>
+    <p>Die Werte nähern sich −20: „Bei t = 2 ist der Stein 20 m/s schnell (nach unten).“</p>
+    <p><span class="hr">Fallen:</span> Klammern bei \(h(2)-h(0)\) · Einheit m/s · nicht h(t) als Geschwindigkeit angeben.</p>
+  </section>
+
+  <section class="card"><h2>Vor der Abgabe prüfen</h2>
+    <ul>
+      <li>Rechenweg übersichtlich, Ergebnis markiert?</li>
+      <li>Bei Sachaufgaben jedes Mal ein Antwortsatz mit Einheit?</li>
+      <li>Substitution zurückgerechnet, ± nicht vergessen, negative Zeit gestrichen?</li>
+      <li>Skizze: Nullstellen, Berühren/Schneiden, Globalverlauf und f(0) passen zusammen?</li>
+    </ul>
+  </section>
+
+  <footer class="foot"><a href="../index.html">← Alle Fächer</a><a href="ka1-probe-parallelklasse.html">Probe-KA mit Lösungen</a><a href="ka1-formelsammlung.html">Formelsammlung</a></footer>
+</main>
+<script>
+window.G={
+  m3a:{x:[-3,3],y:[-2,5],curves:[{f:x=>x**3,cls:'s-muted',dash:true},{f:x=>.5*x**3+2}],pts:[{x:0,y:2,c:'red'}]},
+  m3b:{x:[-2,6],y:[-3,3],curves:[{f:Math.sqrt,dom:[0,6],cls:'s-muted',dash:true},{f:x=>-Math.sqrt(x+1),dom:[-1,6]}],pts:[{x:-1,y:0,c:'red'}]},
+  m4a:{x:[-3,2.5],y:[-1,6],curves:[{f:x=>(x-1)**2*(x+2)**2}],pts:[{x:-2,y:0,c:'red'},{x:1,y:0,c:'red'},{x:0,y:4,t:'(0|4)'}]},
+  m4b:{x:[-3,2.5],y:[-2,5],curves:[{f:x=>(x-1)**2*(x+2)}],pts:[{x:-2,y:0,c:'red'},{x:1,y:0,c:'red'},{x:0,y:2,t:'(0|2)'}]},
+  m6:{x:[-5,4],y:[-2,4],curves:[{f:x=>1/(x*x),cls:'s-muted',dash:true},{f:x=>1/(x*x)-1},{f:x=>1/((x+2)**2),cls:'s-red'}],lines:[{hy:-1,dash:true,cls:'s-pen'},{vx:-2,dash:true,cls:'s-red'}],pts:[{x:1,y:0},{x:-1,y:0},{x:-1,y:1,c:'red'},{x:-3,y:1,c:'red'}]}
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="plot.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Probe-KA Mathe Klausur Nr. 1</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="ka1.css">
+</head>
+<body>
+<main class="wrap">
+  <header style="display:grid;gap:.4rem">
+    <p class="kicker">Mathe · Klausur Nr. 1 der Parallelklasse · 90 Minuten</p>
+    <h1>Probe-Klassenarbeit mit Lösungen</h1>
+    <p class="sub">Erst selbst rechnen, dann die Lösung aufklappen. Achte auf übersichtliche Rechenwege und Antwortsätze.</p>
+  </header>
+
+  <section class="task"><h2>Aufgabe 1 <span>5 Punkte</span></h2>
+    <p>Berechnen Sie die Nullstellen der folgenden Funktionen.</p>
+    <ul class="parts"><li>a) \(f(x)=2x^4-4x\)</li><li>b) \(f(x)=x^4-5x^2+4\)</li></ul>
+    <details><summary>Lösung anzeigen</summary><div class="sol">
+      <h3>a) Ausklammern und Satz vom Nullprodukt</h3>
+      <div class="calc">
+        <div>\(2x^4-4x=0\)</div>
+        <div>\(2x\,(x^3-2)=0\)</div>
+        <div>\(2x=0\Rightarrow x_1=0\)</div>
+        <div>\(x^3-2=0\Rightarrow x^3=2\Rightarrow x_2=\sqrt[3]2\approx1{,}26\)</div>
+      </div>
+      <p class="ans">Nullstellen: \(x_1=0\), \(x_2=\sqrt[3]2\approx1{,}26\)</p>
+      <p class="note">Ungerade Hochzahl 3: nur eine Lösung, kein ±.</p>
+      <h3>b) Substitution \(u=x^2\)</h3>
+      <div class="calc">
+        <div>\(u^2-5u+4=0\)</div>
+        <div>\(u_{1,2}=\frac52\pm\sqrt{\frac{25}4-4}=\frac52\pm\frac32\Rightarrow u_1=4,\ u_2=1\)</div>
+        <div>Rücksubstitution: \(x^2=4\Rightarrow x=\pm2\) und \(x^2=1\Rightarrow x=\pm1\)</div>
+      </div>
+      <p class="ans">Nullstellen: \(-2;\ -1;\ 1;\ 2\)</p>
+    </div></details>
+  </section>
+
+  <section class="task"><h2>Aufgabe 2 <span>3 Punkte</span></h2>
+    <p>Entscheiden Sie jeweils, ob es sich um eine ganzrationale Funktion handelt. Geben Sie ggf. den Grad der Funktion an.</p>
+    <ul class="parts"><li>a) \(f(x)=\sqrt7\,x^4-4x^2+5\)</li><li>b) \(f(x)=3\sqrt x-4x^3\)</li><li>c) \(f(x)=x^2\cdot(2x-x^3)\)</li><li>d) \(f(x)=\frac2x-3x\)</li></ul>
+    <details><summary>Lösung anzeigen</summary><div class="sol">
+      <div>a) <b>ganzrational, Grad 4.</b> \(\sqrt7\) ist nur der Koeffizient vor \(x^4\), das ist erlaubt.</div>
+      <div>b) <b>nicht ganzrational,</b> weil \(\sqrt x=x^{\frac12}\) eine Bruch-Hochzahl hat.</div>
+      <div>c) Ausmultiplizieren: \(x^2\cdot(2x-x^3)=2x^3-x^5\). <b>Ganzrational, Grad 5.</b></div>
+      <div>d) <b>nicht ganzrational,</b> weil \(\frac2x=2x^{-1}\) eine negative Hochzahl hat.</div>
+    </div></details>
+  </section>
+
+  <section class="task"><h2>Aufgabe 3 <span>4 Punkte</span></h2>
+    <p>Beschreiben Sie jeweils, wie man den Graphen von g aus dem Graphen von f erhält.</p>
+    <ul class="parts"><li>a) \(f(x)=x^3\); \(g(x)=2{,}5x^3-3\)</li><li>b) \(f(x)=\sqrt x\); \(g(x)=-\sqrt{x-2}\)</li></ul>
+    <details><summary>Lösung anzeigen</summary><div class="sol">
+      <p class="ans">a) Man erhält den Graphen von g, indem man den Graphen von f mit dem Faktor 2,5 in y-Richtung streckt und um 3 nach unten verschiebt.</p>
+      <div data-plot="a3a"></div>
+      <p class="ans">b) Man erhält den Graphen von g, indem man den Graphen von f an der x-Achse spiegelt und um 2 nach rechts verschiebt.</p>
+      <p class="note">Das Minus vor der Wurzel spiegelt. \(x-2\) in der Wurzel heißt 2 nach rechts. Startpunkt (2|0), danach geht der Graph nach unten.</p>
+      <div data-plot="a3b"></div>
+      <p class="note">Grau gestrichelt: f. Blau: g.</p>
+    </div></details>
+  </section>
+
+  <section class="task"><h2>Aufgabe 4 <span>3 Punkte</span></h2>
+    <p>Gegeben ist die ganzrationale Funktion g mit \(g(x)=(x-2)^2\cdot(x+1)^2\).</p>
+    <ol type="a"><li>Ermitteln Sie den Funktionswert \(g(0)\) und geben Sie den Grad der Funktion an.</li><li>Geben Sie ohne Rechnung die Nullstellen der Funktion und deren Vielfachheit an.</li><li>Skizzieren Sie den Graphen von g. Verwenden Sie dabei die Informationen aus den Teilaufgaben a) und b).</li></ol>
+    <p class="note">Im Original steht in a) „f(0)“. Gemeint ist der Funktionswert von g an der Stelle 0.</p>
+    <details><summary>Lösung anzeigen</summary><div class="sol">
+      <div>a) \(g(0)=(0-2)^2\cdot(0+1)^2=4\cdot1=4\). Grad: \(2+2=4\).</div>
+      <div>b) \(x_1=2\) doppelte Nullstelle, \(x_2=-1\) doppelte Nullstelle.</div>
+      <div>c) Grad 4 und Vorfaktor \(+1\): beide Enden oben. Bei −1 und bei 2 berührt der Graph die x-Achse (doppelt). Er schneidet die y-Achse bei 4.</div>
+      <div data-plot="a4"></div>
+    </div></details>
+  </section>
+
+  <section class="task"><h2>Aufgabe 5 <span>4 Punkte</span></h2>
+    <p>Untersuchen Sie die Funktionen jeweils hinsichtlich des Globalverlaufs und hinsichtlich der Symmetrieeigenschaften.</p>
+    <ul class="parts"><li>a) \(f(x)=-0{,}2x^4-2x^2-3\)</li><li>b) \(f(x)=0{,}4x^3-1{,}3x^5-2x^2\)</li></ul>
+    <details><summary>Lösung anzeigen</summary><div class="sol">
+      <h3>a)</h3>
+      <div>Globalverlauf: höchste Potenz \(-0{,}2x^4\), Grad 4 gerade, \(a_4\lt0\). Für \(x\to-\infty\) gilt \(f(x)\to-\infty\), für \(x\to+\infty\) gilt \(f(x)\to-\infty\) (von links unten nach rechts unten).</div>
+      <div>Symmetrie: Hochzahlen 4, 2 und 0 (bei −3), alle gerade. Also <b>achsensymmetrisch zur y-Achse</b>.</div>
+      <h3>b)</h3>
+      <div>Erst sortieren: \(f(x)=-1{,}3x^5+0{,}4x^3-2x^2\). Höchste Potenz \(-1{,}3x^5\), Grad 5 ungerade, \(a_5\lt0\). Für \(x\to-\infty\) gilt \(f(x)\to+\infty\), für \(x\to+\infty\) gilt \(f(x)\to-\infty\) (von links oben nach rechts unten).</div>
+      <div>Symmetrie: Hochzahlen 5, 3 und 2, gemischt. Also <b>weder achsensymmetrisch zur y-Achse noch punktsymmetrisch zum Ursprung</b>.</div>
+      <div class="figs"><figure><div data-plot="a5a"></div><figcaption>a) zur Kontrolle</figcaption></figure><figure><div data-plot="a5b"></div><figcaption>b) zur Kontrolle</figcaption></figure></div>
+    </div></details>
+  </section>
+
+  <section class="task"><h2>Aufgabe 6</h2>
+    <p>Gegeben ist das Schaubild der Funktion f mit \(f(x)=\frac1{x^2}\).</p>
+    <p>Skizzieren Sie die Graphen der Funktionen g mit \(g(x)=\frac1{x^2}+2\) und h mit \(h(x)=\frac1{(x-3)^2}\) in das gleiche Koordinatensystem.</p>
+    <p class="note">Das Blatt war an dieser Stelle sehr unscharf. Das ist die wahrscheinlichste Lesart, sie passt zu den Kurven in der Zeichnung. Unten steht auch die Lösung, falls es „− 2“ heißt.</p>
+    <div data-plot="a6f"></div>
+    <details><summary>Lösung anzeigen</summary><div class="sol">
+      <div><b>g:</b> Graph von f um 2 nach oben verschoben. Senkrechte Asymptote x = 0, waagerechte Asymptote y = 2. Punkte (1|3) und (−1|3).</div>
+      <div><b>h:</b> Graph von f um 3 nach rechts verschoben. Senkrechte Asymptote x = 3, waagerechte Asymptote y = 0. Punkte (2|1) und (4|1).</div>
+      <div data-plot="a6"></div>
+      <p class="note">Grau gestrichelt: f. Blau: g. Rot: h. Gestrichelt die Asymptoten.</p>
+      <div><b>Falls \(g(x)=\frac1{x^2}-2\):</b> 2 nach unten, waagerechte Asymptote y = −2, Punkte (1|−1) und (−1|−1). Der Graph schneidet die x-Achse bei etwa ±0,71.</div>
+    </div></details>
+  </section>
+
+  <section class="task"><h2>Aufgabe 7 <span>7 Punkte</span></h2>
+    <p>Der freie Fall eines Steins aus 80 m Höhe wird durch die Funktion h mit \(h(t)=80-5t^2\) modelliert (t: Zeit in s; h(t): Höhe in m). Achten Sie auf einen Antwortsatz bei jeder Teilaufgabe.</p>
+    <ol type="a">
+      <li>Berechnen Sie die Höhe des Steins nach zwei Sekunden.</li>
+      <li>Berechnen Sie den Zeitpunkt, zu welchem sich der Stein in 20 Meter Höhe befindet.</li>
+      <li>Bestimmen Sie die Durchschnittsgeschwindigkeit im Zeitintervall [1; 3].</li>
+      <li>Ermitteln Sie die momentane Geschwindigkeit zum Zeitpunkt t = 1 durch eine Verkleinerung des Intervalls.</li>
+    </ol>
+    <p class="note">Auch hier war das Blatt unscharf. Gelesen: 80 m, \(80-5t^2\) und 20 m.</p>
+    <details><summary>Lösung anzeigen</summary><div class="sol">
+      <h3>a)</h3>
+      <div class="calc"><div>\(h(2)=80-5\cdot2^2=80-20=60\)</div></div>
+      <p class="ans">Nach zwei Sekunden ist der Stein 60 m hoch.</p>
+      <h3>b)</h3>
+      <div class="calc"><div>\(80-5t^2=20\quad\mid-80\)</div><div>\(-5t^2=-60\quad\mid:(-5)\)</div><div>\(t^2=12\Rightarrow t=\sqrt{12}\approx3{,}46\)</div><div>\(t=-\sqrt{12}\) entfällt, weil die Zeit nicht negativ ist.</div></div>
+      <p class="ans">Nach etwa 3,46 Sekunden ist der Stein in 20 m Höhe.</p>
+      <h3>c)</h3>
+      <div class="calc"><div>\(h(1)=75,\ h(3)=80-45=35\)</div><div>\(\frac{h(3)-h(1)}{3-1}=\frac{35-75}2=\frac{-40}2=-20\)</div></div>
+      <p class="ans">Die Durchschnittsgeschwindigkeit im Intervall [1; 3] beträgt 20 m/s. Das Minus zeigt: Der Stein fällt, die Höhe nimmt ab.</p>
+      <h3>d)</h3>
+      <div class="tw"><table class="tbl">
+        <tr><th>Intervall</th><th>Rechnung</th><th>Ergebnis</th></tr>
+        <tr><td>[1; 1,1]</td><td>\(\frac{73{,}95-75}{0{,}1}\)</td><td>−10,5</td></tr>
+        <tr><td>[1; 1,01]</td><td>\(\frac{74{,}8995-75}{0{,}01}\)</td><td>−10,05</td></tr>
+        <tr><td>[1; 1,001]</td><td>\(\frac{74{,}989995-75}{0{,}001}\)</td><td>−10,005</td></tr>
+      </table></div>
+      <p>Die Werte nähern sich −10.</p>
+      <p class="ans">Die momentane Geschwindigkeit zum Zeitpunkt t = 1 beträgt 10 m/s (nach unten).</p>
+    </div></details>
+  </section>
+
+  <footer class="foot"><a href="../index.html">← Alle Fächer</a><a href="ka1-merkzettel-klausur.html">Merkzettel zu dieser Klausur</a><a href="ka1-formelsammlung.html">Formelsammlung</a></footer>
+</main>
+<script>
+window.G={
+  a3a:{x:[-3,3],y:[-6,4],curves:[{f:x=>x**3,cls:'s-muted',dash:true},{f:x=>2.5*x**3-3}],pts:[{x:0,y:-3,c:'red',t:'(0|−3)'}]},
+  a3b:{x:[-1,8],y:[-3,3],curves:[{f:Math.sqrt,dom:[0,8],cls:'s-muted',dash:true},{f:x=>-Math.sqrt(x-2),dom:[2,8]}],pts:[{x:2,y:0,c:'red',t:'(2|0)',dy:-8}]},
+  a4:{x:[-2.5,3.5],y:[-1,6],curves:[{f:x=>(x-2)**2*(x+1)**2}],pts:[{x:-1,y:0,c:'red'},{x:2,y:0,c:'red'},{x:0,y:4,t:'(0|4)'}]},
+  a5a:{x:[-3,3],y:[-9,1],ylstep:2,curves:[{f:x=>-.2*x**4-2*x*x-3}]},
+  a5b:{x:[-2,1.5],y:[-4,4],curves:[{f:x=>.4*x**3-1.3*x**5-2*x*x}]},
+  a6f:{x:[-3,6],y:[-1,5],curves:[{f:x=>1/(x*x)}],alt:'Graph von f'},
+  a6:{x:[-3,6],y:[-1,5],curves:[{f:x=>1/(x*x),cls:'s-muted',dash:true},{f:x=>1/(x*x)+2},{f:x=>1/((x-3)**2),cls:'s-red'}],lines:[{hy:2,dash:true,cls:'s-pen'},{vx:3,dash:true,cls:'s-red'}],pts:[{x:1,y:3},{x:-1,y:3},{x:2,y:1,c:'red'},{x:4,y:1,c:'red'}]}
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="plot.js"></script>
+</body>
+</html>
